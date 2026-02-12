@@ -1,0 +1,99 @@
+---
+title: "Cómo aumentar los zombies en Project Zomboid"
+sidebarTitle: "Aumentar zombies"
+description: "Guía para aumentar la cantidad de zombies en servidores dedicados de Project Zomboid modificando SandboxVars."
+---
+
+# Cómo aumentar los zombies en Project Zomboid
+
+En **Project Zomboid**, la cantidad de zombies se controla mediante la configuración **SandboxVars** del servidor.  
+Esta guía explica cómo **aumentar la población de zombies** en un **servidor dedicado**, usando la estructura típica de hosts como **RDSNode**.
+
+---
+
+## Conceptos importantes
+
+- La población zombie se define con **multiplicadores**.
+- Existen valores para **inicio**, **pico máximo** y **distribución**.
+- Los cambios afectan al **mundo completo**, no solo a zonas nuevas.
+- Requiere **reiniciar el servidor**.
+
+---
+
+## Aumentar la población base de zombies
+
+Abre el archivo:
+```
+/home/container/.cache/Server/Pterodactyl_SandboxVars.lua
+```
+
+Busca la sección (Ctrl + F):
+
+```lua
+ZombieConfig = {
+    PopulationMultiplier = 1.0,
+    PopulationStartMultiplier = 1.0,
+    PopulationPeakMultiplier = 1.0,
+}
+```
+
+### Valores recomendados
+Ejemplo de servidor con alta población:
+```lua
+ZombieConfig = {
+    PopulationMultiplier = 2.0,
+    PopulationStartMultiplier = 1.5,
+    PopulationPeakMultiplier = 3.0,
+}
+```
+
+### Qué hace cada valor
+- `PopulationMultiplier:` multiplicador general
+- `PopulationStartMultiplier:` zombies al inicio del mundo
+- `PopulationPeakMultiplier:` máximo de zombies con el paso del tiempo
+
+## Cambiar el día del pico de población
+
+Busca:
+```lua
+PopulationPeakDay = 28,
+```
+Ejemplo para que el pico ocurra antes:
+```lua
+PopulationPeakDay = 14,
+```
+
+<Warning>
+Esto hará que el mundo se vuelva más peligroso más rápido.
+</Warning>
+
+## Aumentar la distribución por zonas
+
+Busca:
+```lua
+ZombieDistribution = 1.0,
+```
+Ejemplo:
+```lua
+ZombieDistribution = 1.5,
+```
+
+<Info>
+Esto aumenta la cantidad de zombies en áreas urbanas y rurales.
+</Info>
+
+## Respawn de zombies
+Para que los zombies vuelvan a aparecer, revisa:
+
+```lua
+RespawnHours = 72.0,
+RespawnUnseenHours = 16.0,
+RespawnMultiplier = 0.1,
+```
+
+Ejemplo de respawn agresivo:
+```lua
+RespawnHours = 24.0,
+RespawnUnseenHours = 6.0,
+RespawnMultiplier = 0.3,
+```

@@ -1,0 +1,18 @@
+---
+title: "Cómo Solucionar el Error 'Failed to check session lock' en Minecraft"
+sidebarTitle: "Failed to check session lock"
+description: "Soluciona el error de bloqueo de sesión en servidores de Minecraft."
+---
+
+Este error ocurre cuando el servidor no puede acceder al archivo de sesión, lo que impide que inicie correctamente.
+
+<Warning>Error: `net.Minecraft.server.WorldConlictException: Failed to check session lock, aborting.`</Warning>
+
+## Solución
+
+1. Detén tu servidor.
+2. Abre la carpeta del mundo en el **Files**
+3. Elimina el archivo `session.lock`
+4. Inicia tu servidor.
+
+El archivo de sesión se regenerará automáticamente.

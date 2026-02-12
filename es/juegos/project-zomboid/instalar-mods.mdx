@@ -1,0 +1,105 @@
+---
+title: "Cómo instalar mods en Project Zomboid"
+sidebarTitle: "Instalar mods"
+description: "Guía completa para instalar y administrar mods en Project Zomboid usando Steam Workshop en servidores alojados en RDSNode."
+---
+
+# Cómo instalar mods en Project Zomboid
+
+En **Project Zomboid**, los mods **NO se instalan subiendo archivos manualmente** al servidor.  
+El juego utiliza **Steam Workshop**, y los mods se descargan automáticamente usando sus identificadores oficiales.
+
+Si tu servidor está alojado en **RDSNode**, esta es la forma correcta y recomendada de instalar mods.
+
+---
+
+## Información importante antes de empezar
+
+Antes de instalar mods, ten en cuenta lo siguiente:
+
+- ❌ No subas carpetas de mods manualmente
+- ❌ No modifiques `/home/container`
+- ✅ Los mods se configuran desde un archivo `.ini`
+- ✅ SteamCMD descarga los mods automáticamente
+- ✅ Los jugadores descargan los mods al conectarse
+
+La estructura de carpetas base del servidor es **normal** y no necesita cambios.
+
+---
+
+## Ubicación correcta del archivo del servidor
+
+En servidores RDSNode / Pterodactyl, el archivo de configuración del servidor se encuentra en:
+```
+/home/container/.cache/Server/Pterodactyl.ini
+```
+<Info>
+Este archivo cumple la misma función que `servertest.ini` en instalaciones locales.
+</Info>
+
+---
+
+## Paso 1: Obtener los IDs del mod [Steam Workshop](https://steamcommunity.com/app/108600/workshop/)
+
+Cada mod de Project Zomboid tiene **dos identificadores**:
+
+1. **Workshop ID**  
+   - Número largo  
+   - Ejemplo: `2169435993`
+
+2. **Mod ID**  
+   - Identificador interno del mod  
+   - Ejemplo: `BetterLockpicking`
+
+<Warning>
+Algunos mods incluyen más de un Mod ID, todos deben agregarse.
+</Warning>
+
+Esta información se encuentra en la descripción del mod en Steam Workshop.
+
+<img src="/images/games/project-zomboid/project-zomboid-mods.gif"/>
+
+---
+
+## Paso 2: Configurar los mods en el servidor
+
+1. Abre el archivo:
+```
+/home/container/.cache/Server/Pterodactyl.ini
+```
+2. Busca o agrega las siguientes líneas (Ctrl + F):
+
+```ini
+WorkshopItems=
+Mods=
+```
+Ejemplo con un solo mod
+```ini
+WorkshopItems=2169435993
+Mods=BetterLockpicking
+```
+Ejemplo con varios mods
+```ini
+WorkshopItems=2169435993;1234567890
+Mods=BetterLockpicking;AnotherModID
+```
+
+### Reglas importantes
+- Usa `;` para separar múltiples mods.
+- No uses espacios.
+- El orden de WorkshopItems y Mods debe coincidir.
+- Respeta mayúsculas y minúsculas en los Mod ID.
+
+## Paso 3: Guardar e iniciar el servidor
+
+1. Guarda los cambios en Pterodactyl.ini
+2. Reinicia el servidor desde el panel de RDSNode
+3. Espera a que finalice la descarga de mods (la primera vez puede tardar varios minutos)
+
+Los mods se descargarán automáticamente en:
+```
+/home/container/steamapps/workshop/
+```
+<Warning>
+No modifiques manualmente esta carpeta.
+</Warning>

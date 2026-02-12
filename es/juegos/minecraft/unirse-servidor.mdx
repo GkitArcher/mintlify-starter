@@ -1,0 +1,97 @@
+---
+title: "Unirse a Servidor Minecraft - Guía Paso a Paso"
+sidebarTitle: "Unirse al servidor"
+description: "Guía detallada para unirse a servidores de Minecraft para juego multijugador. Aprende a encontrar IP del servidor, establecer conexión y resolver problemas comunes."
+---
+
+# Cómo Unirse a un Servidor de Minecraft
+
+Unirse a un servidor de Minecraft te permite jugar con amigos y otros jugadores en mundos compartidos. Esta guía te mostrará exactamente cómo conectarte a tu servidor de Minecraft y invitar a otros a unirse.
+
+## Encontrar la IP de tu Servidor
+
+Antes de poder unirte a tu servidor, necesitas encontrar su dirección IP:
+
+1. **Inicia sesión** en tu [panel de control](https://panel.rdsnode.com/).
+2. **Selecciona tu servidor** de la lista de servidores.
+3. **Encuentra la IP del servidor** en la página terminal.
+
+<Frame>
+  <img src="/images/games/minecraft/join_server.png" alt="IP del servidor" />
+</Frame>
+
+## Unirse desde Minecraft Java Edition
+
+### Método 1: Agregar a Lista de Servidores (Recomendado)
+
+1. **Abre Minecraft Java Edition**
+2. **Haz clic en "Multijugador"**
+3. **Haz clic en "Agregar servidor"**
+4. **Completa la información**:
+   - **Nombre del servidor**: Elige cualquier nombre (ej: "Mi Servidor RDSNode")
+   - **Dirección del servidor**: Ingresa la IP de tu servidor
+5. **Haz clic en "Listo"**
+6. **Selecciona tu servidor** de la lista y haz clic en "Unirse al servidor"
+
+### Método 2: Conexión Directa
+
+1. **Abre Minecraft Java Edition**
+2. **Haz clic en "Multijugador"**
+3. **Haz clic en "Conexión directa"**
+4. **Ingresa la IP del servidor** en el campo de dirección
+5. **Haz clic en "Unirse al servidor"**
+
+## Unirse desde Minecraft Bedrock Edition
+
+<Warning>
+Los servidores de Minecraft Java Edition no son compatibles nativamente con Bedrock Edition. Necesitarás el plugin Geyser instalado en tu servidor para permitir que jugadores de Bedrock se unan.
+</Warning>
+
+Si tu servidor tiene Geyser instalado:
+
+1. **Abre Minecraft Bedrock Edition**
+2. **Ve a "Jugar" > "Servidores"**
+3. **Desplázate hacia abajo y haz clic en "Agregar servidor"**
+4. **Completa la información**:
+   - **Nombre del servidor**: Elige cualquier nombre
+   - **Dirección del servidor**: Ingresa la IP de tu servidor
+   - **Puerto**: Puerto asignado en geyser
+5. **Haz clic en "Guardar"**
+6. **Selecciona tu servidor** y únete
+
+## Invitar Amigos a tu Servidor
+
+Para que tus amigos se unan a tu servidor:
+
+1. **Comparte la IP del servidor** con ellos
+2. **Asegúrate de que tu servidor esté en funcionamiento**
+3. **Verifica que tengan la versión correcta** de Minecraft
+
+### Ejemplo de mensaje para amigos:
+```
+¡Únete a mi servidor de Minecraft!
+IP del servidor: 192.168.1.1:25565
+Versión: 1.20.1
+```
+
+## Solución de Problemas de Conexión
+
+### "No se puede resolver el nombre del host"
+- Verifica que hayas ingresado la IP del servidor correctamente
+- Asegúrate de incluir el puerto si es diferente de 25565
+- Verifica tu conexión a internet
+
+### "Connection timed out" (Tiempo de conexión agotado)
+- Confirma que tu servidor esté en funcionamiento en el panel de control
+- Verifica que no haya restricciones de firewall
+- Intenta reiniciar tu servidor desde el panel de control
+
+### "Outdated server/client" (Servidor/cliente desactualizado)
+- Asegúrate de que tu cliente de Minecraft coincida con la versión del servidor
+- Actualiza tu servidor o cliente según sea necesario
+- Verifica la versión del servidor en el panel de control
+
+### "Server is full" (Servidor lleno)
+- Tu servidor ha alcanzado su límite máximo de jugadores
+- Espera a que alguien se desconecte o considera actualizar tu plan
+- Verifica la configuración de max-players en el panel de control

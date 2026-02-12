@@ -1,0 +1,106 @@
+---
+title: "Cómo darse admin en Project Zomboid"
+sidebarTitle: "Darse admin"
+description: "Guía completa para asignar permisos de administrador en Project Zomboid en servidores dedicados usando RDSNode."
+---
+
+# Cómo darse admin en Project Zomboid
+
+En **Project Zomboid**, los permisos de administrador se asignan **desde la consola del servidor** o **desde el archivo de configuración**, no desde el juego directamente.
+
+En servidores alojados en **RDSNode**, existen **dos métodos oficiales** para otorgar permisos de administrador.
+
+---
+
+## Requisitos previos
+
+Antes de comenzar, asegúrate de:
+
+- Tener acceso al **panel de RDSNode**
+- Conocer el **nombre exacto del usuario** (Steam username)
+- Que el usuario **ya haya entrado al servidor al menos una vez**
+
+<Warning>
+Si el jugador no ha entrado nunca, el servidor no lo reconocerá.
+</Warning>
+
+---
+
+## Método 1: Darse admin desde la consola (RECOMENDADO)
+
+Desde el panel de RDSNode:
+1. Ve a **Terminal**.
+2. Incia el servidor.
+3. Espera a que el servidor termine de iniciar.
+4. En la consola escribe:
+```
+setaccesslevel "NombreDeUsuario" admin
+```
+Ejemplo:
+```
+setaccesslevel "RDSNode" admin
+```
+
+<Info>
+El nombre debe coincidir exactamente (mayúsculas incluidas).
+</Info>
+
+5. El jugador debe **salir y volver a entrar**
+6. Al volver, tendrá acceso al **panel de admin**
+
+Teclas por defecto:
+- `F11` → Panel de administración
+- `T` → Chat de admin
+
+## Método 2: Darse admin desde el archivo `.ini`
+
+Este método es útil si **no puedes acceder a la consola**.
+1. Desde el panel de RDSNode, **detén el servidor** completamente.
+2. Ubicación del archivo del servidor:
+```
+/home/container/.cache/Server/Pterodactyl.ini
+```
+
+Busca o agrega la sección:
+
+```ini
+AdminUsername=
+AdminPassword=
+```
+Ejemplo:
+```ini
+AdminUsername=RDSNode
+AdminPassword=MiPasswordSegura123
+```
+<Info>
+Este usuario obtendrá permisos de administrador al iniciar sesión.
+</Info>
+
+3. Guarda los cambios y vuelve a encender el servidor.
+
+### Cómo quitar permisos de administrador
+Desde la consola del servidor:
+```
+setaccesslevel "NombreDeUsuario" none
+```
+Ejemplo:
+```
+setaccesslevel "RDSNode" none
+```
+
+### Niveles de permisos disponibles
+Project Zomboid incluye varios niveles de permisos:
+
+| Nivel | Descripción |
+|---------|----------|
+| `admin` | Acceso total |
+| `moderator` | Moderación básica |
+| `overseer` | Control limitado |
+| `gm` | Game Master |
+| `observer` | Solo observador |
+| `none` | Sin permisos |
+
+Ejemplo:
+```
+setaccesslevel "Usuario" moderator
+```

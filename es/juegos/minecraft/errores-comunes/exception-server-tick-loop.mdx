@@ -1,0 +1,25 @@
+---
+title: "Cómo Solucionar el Error 'Exception Server Tick Loop' en Minecraft"
+sidebarTitle: "Exception server tick loop"
+description: "Soluciona archivos JSON corruptos que causan errores de tick loop en el servidor."
+---
+
+Este error normalmente significa que un archivo de configuración **JSON está corrupto**.
+
+<Warning>Error: `java.lang.NullPointerException: Exception in server tick loop`</Warning>
+
+## Solución
+
+1. Detén tu servidor.
+2. Ve a la pestaña **Files**
+3. Elimina estos archivos:
+   - `whitelist.json`
+   - `banned-player.json`
+   - `banned-ips.json`
+4. Inicia tu servidor.
+
+Los archivos se regenerarán automáticamente.
+
+<Warning>
+   Se recomienda crear una copia de segurar de los archivos que se van a eliminar.
+</Warning>

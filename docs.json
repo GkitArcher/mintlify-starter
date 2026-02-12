@@ -1,122 +1,189 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "theme": "maple",
+  "name": "RDSNode Wiki",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#0096fe",
+    "light": "#0096fe",
+    "dark": "#0096fe"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Guides",
-        "groups": [
+        "language": "es", 
+        "dropdowns": [
           {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
+            "dropdown": "Guías Generales",
+            "icon": "book",
+            "description": "Primeros pasos, facturación y guías de gestión de servidores",
+            "groups": [
+              {
+                "group": "Bienvenido",
+                "pages": [
+                  "es/introduccion",
+                  "es/inicio-rapido"
+                ]
+              },
+              {
+                "group": "Ayuda y Soporte",
+                "pages": [
+                  "es/ayuda/facturacion-y-pagos",
+                  "es/ayuda/servidor-pendiente",
+                  "es/ayuda/actualizar-plan",
+                  "es/ayuda/cancelar-plan",
+                  "es/ayuda/solucion-de-problemas",
+                  "es/ayuda/reembolsos"
+                ]
+              },
+              {
+                "group": "Gestión del Servidor",
+                "pages": [
+                  "es/servidor/copias-de-seguridad",
+                  "es/servidor/problemas-de-conexion",
+                  "es/servidor/importacion-de-archivos",
+                  "es/servidor/iniciar-detener-reiniciar",
+                  "es/servidor/sub-usuarios"
+                ]
+              }
             ]
           },
           {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+            "dropdown": "Guías de Juegos",
+            "description": "Guías de configuración y administración de servidores para juegos compatibles",
+            "icon": "gamepad",
+            "groups": [
+              {
+                "group": "Minecraft",
+                "pages": [
+                  "es/juegos/minecraft/introduccion",
+                  "es/juegos/minecraft/unirse-servidor",
+                  "es/juegos/minecraft/cambiar-version",
+                  "es/juegos/minecraft/icono-servidor",
+                  "es/juegos/minecraft/no-premium",
+                  "es/juegos/minecraft/instalar-modpacks",
+                  "es/juegos/minecraft/instalar-mods",
+                  "es/juegos/minecraft/instalar-plugins",
+                  "es/juegos/minecraft/plugins/chunky",
+                  "es/juegos/minecraft/plugins/geyser",
+                  "es/juegos/minecraft/mods/simple-voice-chat",
+                  "es/juegos/minecraft/resource-packs",
+                  "es/juegos/minecraft/subir-mundo",
+                  "es/juegos/minecraft/errores-comunes/conexion-tiempo-agotado",
+                  "es/juegos/minecraft/errores-comunes/exception-server-tick-loop",
+                  "es/juegos/minecraft/errores-comunes/failed-to-check-session-lock",
+                  "es/juegos/minecraft/errores-comunes/kicked-for-flying"
+                ]
+              },
+              {
+                "group": "Palworld",
+                "pages": [
+                  "es/juegos/palworld/introduccion",
+                  "es/juegos/palworld/unirse-servidor",
+                  "es/juegos/palworld/setup-xbox-dedicated-server",
+                  "es/juegos/palworld/unirse-servidor-xbox",
+                  "es/juegos/palworld/actualizar-servidor",
+                  "es/juegos/palworld/instalar-mods",
+                  "es/juegos/palworld/archivo-de-configuracion",
+                  "es/juegos/palworld/migrar-mundo",
+                  "es/juegos/palworld/cambiar-dificultad",
+                  "es/juegos/palworld/comandos"
+                ]
+              },
+              {
+                "group": "Rust",
+                "pages": [
+                  "es/juegos/rust/introduccion",
+                  "es/juegos/rust/unirse-servidor",
+                  "es/juegos/rust/plugins-populares",
+                  "es/juegos/rust/comandos-administrador"
+                ]
+              },
+              {
+                "group": "Valheim",
+                "pages": [
+                  "es/juegos/valheim/introduccion",
+                  "es/juegos/valheim/unirse-servidor",
+                  "es/juegos/valheim/comandos-administrador"
+                ]
+              },
+              {
+                "group": "Unturned",
+                "pages": [
+                  "es/juegos/unturned/introduccion",
+                  "es/juegos/unturned/unirse-servidor"
+                ]
+              },
+              {
+                "group": "FiveM",
+                "pages": [
+                  "es/juegos/fivem/introduccion",
+                  "es/juegos/fivem/unirse-servidor",
+                  "es/juegos/fivem/agregar-administradores"
+                ]
+              },
+              {
+                "group": "Hytale",
+                "pages": [
+                  "es/juegos/hytale/introduccion",
+                  "es/juegos/hytale/unirse-servidor"
+                ]
+              },
+              {
+                "group": "Project Zomboid",
+                "pages": [
+                  "es/juegos/project-zomboid/introduccion",
+                  "es/juegos/project-zomboid/unirse-servidor",
+                  "es/juegos/project-zomboid/instalar-build-42",
+                  "es/juegos/project-zomboid/instalar-mods",
+                  "es/juegos/project-zomboid/darse-admin",
+                  "es/juegos/project-zomboid/cambiar-spawn",
+                  "es/juegos/project-zomboid/aumentar-zombies"
+                ]
+              }
             ]
           },
           {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+            "dropdown": "Guías para VPS",
+            "description": "Guías de configuración y administración de VPS",
+            "icon": "gamepad",
+            "groups": [
+              {
+                "group": "VPS",
+                "pages": [
+                  "es/vps/conectarse-bitvise",
+                  "es/vps/conectarse-windows",
+                  "es/vps/primeros-pasos-windows-server"
+                ]
+              }
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/primary-lightmode.webp",
+    "dark": "/logo/primary-darkmode.webp"
   },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+  "background": {
+    "color": {
+      "light": "#FEFEFE",
+      "dark": "#0F1419"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "website": "https://rdsnode.com/",
+      "discord": "https://discord.gg/cMRsJZvp8X"
+    }
+  },
+  "integrations": {
+    "ga4": {
+      "measurementId": "G-YNYEX38EPS"
+    },
+    "plausible": {
+      "domain": "docs.rdsnode.com"
     }
   }
 }

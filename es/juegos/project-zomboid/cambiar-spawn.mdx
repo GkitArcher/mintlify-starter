@@ -1,0 +1,84 @@
+---
+title: "Cómo cambiar el spawn en Project Zomboid"
+sidebarTitle: "Cambiar spawn"
+description: "Guía para cambiar el punto de aparición de jugadores en servidores dedicados de Project Zomboid."
+---
+
+# Cómo cambiar el spawn en Project Zomboid
+
+Esta guía explica cómo cambiar el **punto de aparición (spawn)** de los jugadores en un **servidor dedicado de Project Zomboid**, utilizando la estructura de archivos usada por hosts como **RDSNode**.
+
+---
+
+## Conceptos importantes
+
+- El spawn define dónde aparece un jugador **nuevo o muerto**.
+- Project Zomboid utiliza **regiones de spawn**, no un único punto fijo.
+- La configuración se realiza mediante archivos **.lua** del servidor.
+
+## Obtener coordenadas dentro del juego
+Con permisos de administrador:
+
+1. Presiona `F11` para activar el modo debug
+2. Mueve el cursor por el mapa para ver las coordenadas
+3. Usa esos valores en los archivos .lua
+
+---
+
+## Cambiar el spawn inicial (spawnpoints.lua)
+
+Abre el archivo:
+```
+/home/container/.cache/Server/Pterodactyl_spawnpoints.lua
+```
+
+Ejemplo de configuración:
+
+```lua
+function SpawnPoints()
+    return {
+        unemployed = {
+            { worldX = 45, worldY = 23, posX = 120, posY = 180, posZ = 0 }
+        }
+    }
+end
+```
+
+Significado de los valores
+- `worldX, worldY:` coordenadas del chunk del mapa
+- `posX, posY:` posición exacta dentro del mundo
+- `posZ:` altura del jugador (0 = suelo)
+
+Se pueden definir varios puntos de spawn:
+
+```lua
+unemployed = {
+    { worldX = 45, worldY = 23, posX = 120, posY = 180, posZ = 0 },
+    { worldX = 46, worldY = 23, posX = 90, posY = 150, posZ = 0 }
+}
+```
+
+## Cambiar la región de spawn (spawnregions.lua)
+Abre el archivo:
+```
+/home/container/.cache/Server/Pterodactyl_spawnregions.lua
+```
+Ejemplo:
+```lua
+function SpawnRegions()
+    return {
+        { name = "Base Principal", file = "media/maps/Muldraugh, KY/spawnpoints.lua" }
+    }
+end
+```
+
+Para cambiar la ciudad de aparición, reemplaza el valor del mapa:
+- Muldraugh, KY
+- Rosewood, KY
+- Riverside, KY
+- West Point, KY
+
+Ejemplo usando Rosewood:
+```lua
+{ name = "Rosewood", file = "media/maps/Rosewood, KY/spawnpoints.lua" }
+```

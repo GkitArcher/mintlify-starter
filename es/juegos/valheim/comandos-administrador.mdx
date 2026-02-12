@@ -1,0 +1,184 @@
+---
+title: "Comandos de Administrador de Valheim"
+sidebarTitle: "Comandos de administrador"
+description: "Guía de referencia completa de comandos de administrador de Valheim para la gestión del servidor. Aprende sobre administración de jugadores, control del mundo y comandos de depuración con ejemplos de sintaxis y consejos de solución de problemas."
+tags: "valheim, comandos de administrador valheim, gestión de servidores valheim, comandos de consola valheim, servidor dedicado valheim"
+---
+
+# Comandos de administrador de Valheim
+
+Esta guía cubre todos los comandos de administrador esenciales para gestionar tu servidor de Valheim, incluyendo administración de jugadores, control del mundo y herramientas de depuración.
+
+## Habilitar el modo administrador
+
+Antes de usar comandos de administrador, debes habilitar el modo administrador en tu servidor.
+
+1. Abre la consola presionando **F5** dentro del juego
+2. Escribe `imacheater` y presiona Enter para habilitar el modo administrador/depuración
+3. Verás aparecer en pantalla "Cheats: True", confirmando que el modo administrador está activo
+
+**Nota**: Los privilegios de administrador se otorgan automáticamente al host del servidor. Para otros jugadores, deberás agregarlos a la lista de administradores en los archivos del servidor.
+
+## Comandos de gestión de jugadores
+
+### Comandos básicos de jugadores
+
+| Comando | Sintaxis | Descripción |
+|---------|----------|-------------|
+| `kick` | `kick [nombre_jugador]` | Expulsa a un jugador del servidor |
+| `ban` | `ban [nombre_jugador]` | Banea permanentemente a un jugador del servidor |
+| `unban` | `unban [nombre_jugador]` | Elimina a un jugador de la lista de baneados |
+| `banned` | `banned` | Lista todos los jugadores actualmente baneados |
+
+### Información de jugadores
+
+| Comando | Sintaxis | Descripción |
+|---------|----------|-------------|
+| `players` | `players` | Muestra todos los jugadores conectados y sus IDs |
+| `ping` | `ping` | Muestra tu ping actual hacia el servidor |
+
+## Comandos de Control del Mundo
+
+### Tiempo y clima
+
+| Comando | Sintaxis | Descripción |
+|---------|----------|-------------|
+| `skiptime` | `skiptime [segundos]` | Avanza el tiempo la cantidad de segundos indicada |
+| `sleep` | `sleep` | Salta a la siguiente mañana |
+| `tod` | `tod [0-1]` | Establece la hora del día (0=medianoche, 0.5=mediodía, 1=medianoche) |
+| `env` | `env [tipo_clima]` | Cambia el clima (Clear, Twilight_Clear, Misty, Darklands_dark, Heath clear, DeepForest Mist, GDKing, Rain, LightRain, ThunderStorm, Eikthyr, GoblinKing, nofogts, SwampRain, Bonemass, Snow, Twilight_Snow, Twilight_Clear, Twilight_Rain, Ashrain, Crypt, SunkenCrypt) |
+
+### Gestión del mundo
+
+| Comando | Sintaxis | Descripción |
+|---------|----------|-------------|
+| `save` | `save` | Fuerza el guardado del mundo |
+| `resetmap` | `resetmap` | Reinicia la exploración del mapa para todos los jugadores |
+| `exploremap` | `exploremap` | Revela el mapa completo |
+| `resetcharacter` | `resetcharacter` | Reinicia tu personaje al nivel 1 |
+
+## Comandos de ítems y recursos
+
+### Generar ítems
+
+| Comando | Sintaxis | Descripción |
+|---------|----------|-------------|
+| `spawn` | `spawn [nombre_item] [cantidad] [nivel]` | Genera ítems en tu ubicación |
+| `removedrops` | `removedrops` | Elimina todos los ítems tirados en el área |
+
+### Nombres comunes de ítems
+
+**Recursos:**
+- `Wood`, `Stone`, `FineWood`, `CoreWood`, `IronScrap`, `Silver`, `BlackMetal`
+- `LeatherScraps`, `DeerHide`, `TrollHide`, `WolfPelt`, `LinenThread`
+
+**Comida:**
+- `Honey`, `Mushroom`, `Carrot`, `Turnip`, `Barley`, `Flax`
+- `CookedMeat`, `Sausages`, `FishCooked`, `Bread`
+
+**Herramientas y Armas:**
+- `Hammer`, `Axe`, `Pickaxe`, `Hoe`, `Cultivator`
+- `SwordIron`, `SpearFlint`, `BowHuntsman`, `ShieldWood`
+
+## Comandos de criaturas y NPC
+
+### Generar criaturas
+
+| Comando | Sintaxis | Descripción |
+|---------|----------|-------------|
+| `spawn` | `spawn [nombre_criatura] [cantidad] [nivel]` | Genera criaturas en tu ubicación |
+| `killall` | `killall` | Mata a todos los enemigos cercanos |
+| `tame` | `tame` | Domestica todas las criaturas domesticables cercanas |
+
+### Nombres comunes de criaturas
+
+**Enemigos:**
+- `Greyling`, `Greydwarf`, `GreydwarfBrute`, `GreydwarfShaman`
+- `Skeleton`, `Draugr`, `DraugrElite`, `Blob`, `Oozer`
+- `Troll`, `Surtling`, `Wraith`, `StoneGolem`
+
+**Animales Domesticables:**
+- `Boar`, `Wolf`, `Lox`
+
+## Comandos de construcción y modo creativo
+
+### Herramientas de construcción
+
+| Comando | Sintaxis | Descripción |
+|---------|----------|-------------|
+| `debugmode` | `debugmode` | Habilita el modo de construcción creativa (sin costo de recursos) |
+| `god` | `god` | Activa/desactiva el modo dios (invencibilidad) |
+| `ghost` | `ghost` | Activa/desactiva el modo fantasma (sin colisiones, atraviesa objetos) |
+| `fly` | `fly` | Habilita el modo de vuelo |
+| `freefly` | `freefly` | Habilita el modo de cámara libre |
+
+### Gestión de construcciones
+
+| Comando | Sintaxis | Descripción |
+|---------|----------|-------------|
+| `removebuilds` | `removebuilds` | Elimina todas las estructuras construidas por jugadores en el área |
+| `repair` | `repair` | Repara todas las estructuras dentro del rango |
+
+## Comandos de gestión del servidor
+
+### Rendimiento y depuración
+
+| Comando | Sintaxis | Descripción |
+|---------|----------|-------------|
+| `info` | `info` | Muestra información del sistema y estadísticas de rendimiento |
+| `lodbias` | `lodbias [valor]` | Ajusta el sesgo del nivel de detalle (0.5–5.0) |
+| `dpsdebug` | `dpsdebug` | Activa/desactiva la visualización de daño por segundo |
+| `resetspawn` | `resetspawn` | Restablece tu punto de aparición al valor por defecto |
+
+### Comandos de red
+
+| Comando | Sintaxis | Descripción |
+|---------|----------|-------------|
+| `connect` | `connect [ip:puerto]` | Se conecta a un servidor específico |
+| `disconnect` | `disconnect` | Se desconecta del servidor actual |
+
+## Casos de uso comunes y ejemplos
+
+### Configurar un nuevo jugador
+
+```bash
+# Dar equipamiento básico inicial a un nuevo jugador
+spawn Hammer 1
+spawn Axe 1 
+spawn Pickaxe 1
+spawn Wood 50
+spawn Stone 50
+```
+
+### Organizar eventos
+
+```bash
+# Establecer clima dramático para peleas de jefes
+env ThunderStorm
+# Generar criatura jefe
+spawn Eikthyr 1 3
+# Ajustar la hora al atardecer para ambientación
+tod 0.8
+```
+
+### Mantenimiento del servidor
+
+```bash
+# Forzar guardado antes del mantenimiento
+save
+# Eliminar ítems tirados para mejorar el rendimiento
+removedrops
+# Ver jugadores conectados
+players
+```
+
+### Solución de problemas de jugadores
+
+```bash
+# Restablecer el punto de aparición de un jugador atascado
+resetspawn
+# Teletransportar al jugador fuera de un área problemática
+goto [coordenadas]
+# Eliminar estructuras problemáticas
+removebuilds
+```

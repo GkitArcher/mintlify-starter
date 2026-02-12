@@ -1,0 +1,28 @@
+---
+title: "Cómo configurar un servidor dedicado de Palworld para Xbox"
+sidebarTitle: "Configurar servidor dedicado Xbox"
+description: "Guía sobre cómo configurar y crear un servidor dedicado de Palworld para Xbox"
+tags: "palworld"
+---
+
+La nueva actualización **Palworld Sakurajima** trae los servidores dedicados para Xbox.  
+¿Quieres configurar tu propio servidor de Palworld para Xbox? Sigue los pasos a continuación para permitir conexiones desde consolas Xbox (Xbox Series X, Xbox Series S, Xbox One) y desde la versión de Microsoft Store para Windows.
+
+El juego cruzado entre la versión de Xbox y Steam **no es posible por el momento**. A continuación se explica cómo convertir un servidor dedicado de Steam a Xbox.
+
+## Crear un servidor dedicado de Xbox
+
+Para crear un servidor de Xbox y permitir conexiones desde Xbox a tu servidor de Palworld, debes modificar el archivo `PalWorldSettings.ini` y agregar la siguiente configuración al final del archivo:
+
+1. Detén el servidor.
+3. Navega a `/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini`.
+4. Cambia `AllowConnectPlatform=Steam` por `AllowConnectPlatform=Xbox`.
+5. Cambia `ServerName` por el nombre que prefieras.
+6. Guarda el archivo e inicia el servidor.
+
+Alternativamente, puedes añadir lo siguiente a tu archivo `PalWorldSettings.ini`:
+
+```
+[/Script/Pal.PalGameWorldSettings]
+OptionSettings=(AllowConnectPlatform=Xbox)
+```

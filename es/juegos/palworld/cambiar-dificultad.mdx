@@ -1,0 +1,38 @@
+---
+title: "Cómo cambiar la dificultad en Palworld"
+sidebarTitle: "Cambiar dificultad"
+description: "Guía para cambiar la dificultad en servidores dedicados de Palworld modificando PalWorldSettings.ini."
+---
+
+# Cómo cambiar la dificultad en Palworld
+
+En **Palworld**, la dificultad del juego se controla desde el archivo de configuración del servidor.  
+Esta guía explica cómo **cambiar la dificultad** en un **servidor dedicado**, usando los ajustes oficiales del juego.
+
+---
+
+## Cambiar difucultad
+
+1. Ve a **Files** y busca la siguiente ruta:
+```
+/home/container/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
+```
+2. Abre el archivo **PalWorldSettings.ini**
+3. Busca el parametro **Difficulty** (Ctrl + F)
+4. Modifica el parametro con los siguientes valores:
+   - **None** → Personalizada (recomendada para servidores)
+   - **Easy** → Fácil
+   - **Normal** → Normal
+   - **Hard** → Difícil
+
+Ejemplo usando dificultad normal:
+```ini
+Difficulty=Normal
+```
+
+5. Guarda el archivo **PalWorldSettings.ini**
+6. Reinicia el servidor
+
+<Frame>
+  <img src="/images/games/palworld/palworld-cambiar-dificultad.gif"/>
+</Frame>

@@ -1,0 +1,252 @@
+---
+title: "Mejores Plugins para Servidores Rust - Plugins Esenciales de uMod para Mejorar el Gameplay"
+sidebarTitle: "Plugins populares"
+description: "Descubre los plugins más populares y esenciales para servidores Rust usando uMod. Guía completa de herramientas de administración, funciones para jugadores, sistemas de economía y mejoras de calidad de vida."
+---
+
+# Mejores Plugins para Servidores Rust - Plugins Esenciales de uMod
+
+Transforma tu servidor de Rust con estos plugins esenciales que mejoran el gameplay, facilitan la administración y crean experiencias atractivas para los jugadores. Esta lista curada cubre los plugins más populares y confiables utilizados por servidores Rust exitosos en todo el mundo.
+
+Todos los plugins requieren el [framework uMod](/games/rust/install-oxide) instalado en tu [servidor Rust](https://rdsnode.com/rust-hosting/). Cada plugin incluye instrucciones de instalación, consejos de configuración y ejemplos de uso.
+
+## Herramientas de Administración y Moderación
+
+### Admin Hammer
+**Herramienta esencial de construcción y administración**
+
+- **Propósito:** Herramientas avanzadas de construcción para administradores
+- **Funciones:** Construcción instantánea, sin costo de recursos, colocación avanzada
+- **Comandos:** `/ah` - Activar/desactivar modo Admin Hammer
+- **Descarga:** [umod.org/plugins/admin-hammer](https://umod.org/plugins/admin-hammer)
+
+**Configuración rápida:**
+1. Sube `AdminHammer.cs` a `oxide/plugins/`
+2. Otorga el permiso: `oxide.grant user STEAMID64 adminhammer.use`
+3. Usa `/ah` en el juego para activarlo
+
+### Vanish
+**Modo invisible para admins y moderación**
+
+- **Propósito:** Hacer invisibles a los administradores para monitorear jugadores
+- **Funciones:** Invisibilidad total, sin colisión, movimiento silencioso
+- **Comandos:** `/vanish` - Activar/desactivar invisibilidad
+- **Permisos:** `vanish.use`, `vanish.damage`
+- **Descarga:** [umod.org/plugins/vanish](https://umod.org/plugins/vanish)
+
+**Configuración:**
+```json
+{
+  "Enable damage to vanished players": false,
+  "Enable vanish on admin connect": true,
+  "Show vanish status in chat": false
+}
+
+### Admin Radar
+**Sistema de monitoreo de jugadores en tiempo real**
+
+- **Propósito:** Rastrear a todos los jugadores en el mapa del servidor
+- **Funciones:** Posiciones de jugadores en vivo, overlay ESP, teletransporte a jugadores
+- **Comandos:** `/radar` - Abrir la interfaz del radar de administrador
+- **Perfecto para:** Monitorear tramposos, ayudar a jugadores perdidos
+- **Descarga:** [umod.org/plugins/admin-radar](https://umod.org/plugins/admin-radar)
+
+## Funciones para Jugadores y Calidad de Vida
+
+### Teleportation
+**Sistema completo de teletransporte y hogares**
+
+- **Propósito:** Teletransporte de jugadores y gestión de hogares
+- **Funciones:** Establecer hogares, teletransportarse a jugadores, teletransporte administrativo
+- **Comandos:** `/home`, `/sethome`, `/tpr`, `/tpa`
+- **Cooldowns:** Retrasos configurables para evitar abusos
+- **Descarga:** [umod.org/plugins/teleportation](https://umod.org/plugins/teleportation)
+
+**Configuración esencial:**
+```json
+{
+  "Home - Max homes per player": 3,
+  "TPR - Cooldown": 600,
+  "Home - Cooldown": 300,
+  "Block teleport in combat": true
+}
+```
+
+### Kits
+**Paquetes de objetos Starter y VIP**
+
+- **Propósito:** Proporcionar kits de objetos a los jugadores
+- **Características:** Múltiples tipos de kits, cooldowns, permisos
+- **Comandos:** `/kit`, `/kit list`, `/kit starter`
+- **Casos de uso:** Kits iniciales, recompensas VIP, herramientas de admin
+- **Descarga:** [umod.org/plugins/kits](https://umod.org/plugins/kits)
+
+**Ejemplos populares de kits:**
+- **Starter:** Herramientas básicas y comida para nuevos jugadores
+- **VIP:** Objetos mejorados para colaboradores
+- **PvP:** Equipamiento de combate para eventos de arena
+
+### Economics
+**Sistema de economía y moneda del servidor**
+
+- **Propósito:** Añadir un sistema de dinero al servidor
+- **Características:** Balances de jugadores, transacciones, integración con tiendas
+- **Comandos:** `/balance`, `/pay`, `/eco give`
+- **Se integra con:** Plugins de tienda, sistemas de recompensas
+- **Descarga:** [umod.org/plugins/economics](https://umod.org/plugins/economics)
+
+## Mejoras de PvP y Combate
+
+### Remove Tool
+**Sistema seguro de eliminación de construcciones**
+
+- **Propósito:** Permitir a los jugadores eliminar sus propias estructuras
+- **Características:** Reembolso de recursos, límites de tiempo, autorización
+- **Comandos:** `/remove` - Activar modo eliminación
+- **Configuración:** Tasas de reembolso y límites de tiempo configurables
+- **Descarga:** [umod.org/plugins/remove-tool](https://umod.org/plugins/remove-tool)
+
+### Clans
+**Sistema de gestión de equipos y alianzas**
+
+- **Propósito:** Organizar jugadores en grupos
+- **Características:** Chat de clan, propiedad compartida, alianzas
+- **Comandos:** `/clan create`, `/clan invite`, `/c <message>`
+- **Beneficios:** Mejor trabajo en equipo, PvP organizado
+- **Descarga:** [umod.org/plugins/clans](https://umod.org/plugins/clans)
+
+### Rust:IO Clans
+**Sistema avanzado de clanes con integración web**
+
+- **Propósito:** Gestión profesional de clanes
+- **Características:** Interfaz web, estadísticas detalladas, rankings
+- **Integración:** Funciona con el ecosistema Rust:IO
+- **Ideal para:** Servidores grandes y competitivos
+- **Descarga:** [umod.org/plugins/rust-io-clans](https://umod.org/plugins/rust-io-clans)
+
+## Economía e Intercambio
+
+### Shop
+**Sistema de tienda para jugadores y administradores**
+
+- **Propósito:** Comprar y vender objetos usando la economía del servidor
+- **Características:** Tiendas de admin, tiendas de jugadores, control de precios
+- **Comandos:** `/shop`, `/shop buy`, `/shop sell`
+- **Requiere:** Plugin Economics para la moneda
+- **Descarga:** [umod.org/plugins/shop](https://umod.org/plugins/shop)
+
+### Trade
+**Intercambio seguro entre jugadores**
+
+- **Propósito:** Comercio seguro de objetos entre jugadores
+- **Características:** Ventanas de intercambio, sistema de confirmación, registros
+- **Comandos:** `/trade <player>` - Iniciar intercambio
+- **Seguridad:** Previene estafas y duplicación de ítems
+- **Descarga:** [umod.org/plugins/trade](https://umod.org/plugins/trade)
+
+### Rewards
+**Sistema de logros y recompensas**
+
+- **Propósito:** Recompensar a los jugadores por actividades
+- **Características:** Recompensas por kills, bonus de recolección, tiempo de juego
+- **Integración:** Funciona con el plugin Economics
+- **Personalizable:** Configura recompensas para cualquier actividad
+- **Descarga:** [umod.org/plugins/rewards](https://umod.org/plugins/rewards)
+
+## Gestión del Servidor
+
+### Auto Door Close
+**Gestión automática de puertas**
+
+- **Propósito:** Cerrar puertas automáticamente tras un retraso
+- **Características:** Temporizadores configurables, soporte por tipo de puerta
+- **Beneficios:** Reduce spam de puertas, mejora el rendimiento
+- **Configuración:** Temporizadores separados según tipo de puerta
+- **Descarga:** [umod.org/plugins/auto-door-close](https://umod.org/plugins/auto-door-close)
+
+### Stack Size Controller
+**Modificar el tamaño de los stacks**
+
+- **Propósito:** Personalizar cuántos objetos se apilan juntos
+- **Características:** Configuración por ítem, multiplicadores
+- **Casos de uso:** Mayor comodidad, balance de gameplay
+- **Popular:** Multiplicadores 2x–5x para calidad de vida
+- **Descarga:** [umod.org/plugins/stack-size-controller](https://umod.org/plugins/stack-size-controller)
+
+### Gather Manager
+**Multiplicador de recolección de recursos**
+
+- **Propósito:** Modificar la velocidad de recolección
+- **Características:** Multiplicadores por recurso, por herramienta
+- **Comandos:** `/gather` - Ver tasas actuales
+- **Balance:** Tasas 2x–3x populares en servidores casuales
+- **Descarga:** [umod.org/plugins/gather-manager](https://umod.org/plugins/gather-manager)
+
+## Plugins de Eventos y Mini-Juegos
+
+### Rust Kits Arena
+**Sistema de arenas PvP y torneos**
+
+- **Propósito:** Eventos PvP organizados y arenas
+- **Características:** Múltiples tipos de arena, torneos, espectadores
+- **Comandos:** `/arena join`, `/arena leave`
+- **Ideal para:** Eventos competitivos, práctica de habilidades
+- **Descarga:** [umod.org/plugins/rust-kits-arena](https://umod.org/plugins/rust-kits-arena)
+
+### Helicopter
+**Eventos mejorados de helicóptero**
+
+- **Propósito:** Mejorar la mecánica del helicóptero patrulla
+- **Características:** Loot configurable, tiempos de aparición, dificultad
+- **Personalización:** Ajustar vida, daño y recompensas
+- **Popular:** Mayor frecuencia para más acción
+- **Descarga:** [umod.org/plugins/helicopter](https://umod.org/plugins/helicopter)
+
+### Bradley APC
+**Eventos del vehículo blindado Bradley**
+
+- **Propósito:** Mejorar los encuentros con el Bradley APC
+- **Características:** Tablas de loot personalizadas, control de spawn
+- **Balance:** Ajuste de dificultad y recompensas
+- **Integración:** Compatible con otros plugins de eventos
+- **Descarga:** [umod.org/plugins/bradley-apc](https://umod.org/plugins/bradley-apc)
+
+## Buenas Prácticas de Instalación
+
+### Orden de Instalación de Plugins
+
+1. **Instala primero el framework uMod**
+2. **Añade herramientas de admin** (Vanish, Admin Hammer)
+3. **Instala funciones base** (Teleportation, Kits)
+4. **Añade el sistema económico** (Economics, Shop)
+5. **Configura permisos** para todos los plugins
+
+### Consideraciones de Rendimiento
+
+- **Empieza con lo esencial** - Añade plugins gradualmente
+- **Monitorea el rendimiento** - Revisa uso de CPU/RAM
+- **Actualizaciones regulares** - Mantén plugins al día
+- **Elimina plugins sin uso** - Limpieza periódica
+
+### Consejos de Configuración
+
+- **Prueba primero en un servidor de desarrollo**
+- **Haz backups de configs** antes de cambios grandes
+- **Documenta configuraciones personalizadas** para el equipo
+- **Revisa logs regularmente** para detectar errores
+
+## Compatibilidad de Plugins
+
+### Combinaciones Compatibles
+
+**Paquete básico de servidor:**
+- Teleportation + Kits + Remove Tool + Auto Door Close
+
+**Paquete de economía:**
+- Economics + Shop + Rewards + Clans
+
+**Paquete PvP:**
+- Clans + Rust:IO + Arena + Eventos mejorados
+
+**Paquete casual:**
+- Gather Manager + Stack Size Controller + Plugins de calidad de vida

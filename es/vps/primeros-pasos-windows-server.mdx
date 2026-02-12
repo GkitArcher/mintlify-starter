@@ -1,0 +1,41 @@
+---
+title: "Primeros pasos VPS con Windows Server"
+sidebarTitle: "Primeros pasos VPS con Windows Server"
+description: "Aprende los primeros pasos VPS con Windows Server"
+---
+
+## Paso 1: Activar Windows Server
+
+1. Abra una PowerShell como administrador.
+2. Ejecutar el siguiente comando:
+```
+slmgr -rearm
+```
+## Paso 2: Desactivar Windows Defender en tiempo real
+1. Buscar "Windows Defender" en el menú de inicio.
+<img src="/images/vps/primeros-pasos-windows-server.png" alt="Primeros pasos 1" />
+2. Dar clic en "Virus & Threat Protection".
+<img src="/images/vps/primeros-pasos-windows-server-2.png" alt="Primeros pasos 2" />
+3. Ahora le damos clic en "Manage Settings".
+<img src="/images/vps/primeros-pasos-windows-server-3.png" alt="Primeros pasos 3" />
+4. Desactivar las 3 opciones de "Real-Time Protection".
+<img src="/images/vps/primeros-pasos-windows-server-4.png" alt="Primeros pasos 4" />
+
+## Paso 3: Abrir puertos
+
+1. Buscar "Terminal" (cmd) en el menú de inicio.
+2. Ejecutar los siguientes comandos:
+
+### Ejemplo (Servidor FiveM)
+```
+# Reglas de entrada (inbound)
+netsh advfirewall firewall add rule name="TCP - FiveM 30120" protocol=TCP dir=in localport=30120 action=allow
+netsh advfirewall firewall add rule name="UDP - FiveM 30120" protocol=UDP dir=in localport=30120 action=allow
+
+# Reglas de salida (outbound)
+netsh advfirewall firewall add rule name="TCP - FiveM 30120" protocol=TCP dir=out localport=30120 action=allow
+netsh advfirewall firewall add rule name="UDP - FiveM 30120" protocol=UDP dir=out localport=30120 action=allow
+```
+
+## Paso 4: Reiniciar la VPS
+Después de estos pasos, reinicie la VPS para que los cambios se apliquen.
