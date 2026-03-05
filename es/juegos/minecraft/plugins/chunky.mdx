@@ -1,0 +1,44 @@
+---
+title: "Plugin Chunky: Pre-generar el Mundo de tu Servidor de Minecraft"
+sidebarTitle: "Chunky"
+description: "Guía para usar Chunky para pre-generar mundos y reducir el lag del servidor."
+tags: ["chunky", "pregen", "pregeneración", "pre-gen", "pre-generar", "rendimiento", "lag", "minecraft", "servidor minecraft", "optimizar servidor", "plugin", "mod"]
+---
+
+[Chunky](https://github.com/pop4959/Chunky) pre-genera chunks para tu servidor, reduciendo el uso de CPU y los picos de lag, ya que los jugadores se mueven por chunks que ya están generados.
+
+## Instalación
+
+**Servidores basados en Bukkit:**
+1. Descárgalo desde [SpigotMC](https://www.spigotmc.org/resources/chunky.81534/)
+2. Coloca el archivo JAR en la carpeta `plugins`
+3. Reinicia tu servidor
+
+**Servidores Forge o Fabric:**
+1. Descárgalo desde [CurseForge](https://www.curseforge.com/minecraft/mc-mods/chunky-pregenerator-forge) o [Modrinth](https://modrinth.com/mod/chunky)
+2. Coloca el archivo JAR en la carpeta `/mods`
+3. Reinicia tu servidor
+
+## Uso
+
+<Warning>La pre-generación aumenta el tamaño del mundo. Revisa [onlinemo.de/world](https://onlinemo.de/world) para calcular el tamaño. Siempre [haz un respaldo del servidor](/panel/backups) antes.</Warning>
+
+Comandos básicos:
+- `/chunky radius <tamaño>` - Establece el radio a pre-generar
+- `/chunky center <x> <z>` - Establece el punto central (el valor por defecto suele ser suficiente)
+- `/chunky start` - Inicia la generación
+- `/chunky pause` - Pausa la generación
+- `/chunky resume` - Reanuda la generación
+- `/chunky stop` - Detiene la generación
+- `/chunky status` - Ver el progreso
+
+Consulta la [documentación de Chunky](https://github.com/pop4959/Chunky/wiki) para más comandos.
+
+### Ejemplo
+
+Pre-generar un área de **5000x5000 chunks** centrada en `0,0`:
+- `/chunky radius 5000`
+- `/chunky center 0 0`
+- `/chunky start`
+
+<Warning>Valores de radio grandes pueden tardar horas. Puedes jugar mientras se ejecuta, pero espera algo de lag. Lo mejor es iniciarlo durante la noche.</Warning>

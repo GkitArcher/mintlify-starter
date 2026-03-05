@@ -1,0 +1,59 @@
+---
+title: "Importar Archivos"
+sidebarTitle: "Importar Archivos"
+description: "Cómo subir archivos a tu servidor de juegos usando SFTP y carga web."
+icon: "file-import"
+---
+
+## Carga Web
+
+<Info>Limitado a **1GB**.</Info>
+
+Ve a **Files** y arrastra y suelta los archivos para subirlos.
+
+<Frame>
+  <img src="/images/panel/rdsnode_archivos.png" alt="Menú de archivos" />
+</Frame>
+
+**¿Subiendo carpetas?**  
+Puedes arrastrar la carpeta directamente pero este tiene un peso mayor, también puedes comprimir los archivos usando [7Zip](https://7zip.org) o [WinRAR](https://winrar.org), luego sube el archivo, clic derecho y clic en **Unarchive**.
+
+Formatos compatibles: `.zip`, `.7z`, `.tar.gz`
+
+---
+
+## Subida por SFTP
+
+<Info>Sin límite de tamaño. Recomendado para archivos grandes.</Info>
+
+Usa SFTP si estás subiendo **mundos**, **modpacks** o archivos mayores a 100MB.
+
+### Clientes SFTP Recomendados
+
+- **[FileZilla](https://filezilla-project.org/)** — Interfaz simple, Windows y macOS  
+- **[WinSCP](https://winscp.net/eng/download.php)** — Solo Windows  
+- **[Termius](https://termius.com/)** — Avanzado, multiplataforma  
+
+### Cómo Conectarse
+
+1. Ve a **Settings**
+2. Copia tus datos de SFTP  
+3. Abre FileZilla (u otro cliente) 
+4. Ingresa tus credenciales
+   - **Servidor:** Es el **SERVER ADDRESS** que te proporciona el panel.
+   - **Nombre de usuario:** Es el **USERNAME** que te proporciona el panel.
+   - **Contraseña:** Es la misma contraseña que tienes para ingresar al panel.
+   - **Puerto:** El puerto por defecto es 2022 o 22.
+5. Arrastra y suelta tus archivos en el servidor
+
+<Frame>
+  <img src="/images/panel/rdsnode_archivos_2.png" alt="Menú de archivos" />
+</Frame>
+
+<Frame>
+  <img src="/images/panel/rdsnode_archivos_3.png" alt="Menú de archivos" />
+</Frame>
+
+**¿Transferencia lenta?**  
+Muchos archivos pequeños se suben lentamente.  
+Comprímelos primero, súbelos una sola vez y luego descomprímelos en el panel.

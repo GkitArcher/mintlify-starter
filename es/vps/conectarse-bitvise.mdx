@@ -1,0 +1,83 @@
+---
+title: "Guía de como conectarse a un VPS"
+sidebarTitle: "Conectarse (Bitvise)"
+description: "Aprende a cómo conectarte a tu VPS de RDSNode"
+---
+
+# Descripción general
+Esta guía explica el proceso de conexión segura a su VPS (Servidor Privado Virtual) mediante SSH (Secure Shell) utilizando Bitvise SSH Client, una herramienta que proporciona tanto acceso SSH como SFTP en una única interfaz.
+
+## Conexión SSH a su VPS
+
+### 🔑 Credenciales de acceso
+Al adquirir su VPS, recibirá un correo electrónico con las credenciales de acceso en aproximadamente 5 minutos. Las credenciales incluirán:
+```
+Dirección IP: xxx.xxx.xxx.xxx
+Usuario: root
+Contraseña: [contraseña_generada]
+```
+
+<Warning>
+Las credenciales mostradas son ejemplos. Sus credenciales reales serán diferentes y únicas. Revise cuidadosamente el correo electrónico con sus credenciales personalizadas.
+</Warning>
+
+## 🛠️ Configuración de Bitvise SSH Client
+
+### Instalación del cliente SSH
+1. Visite la página oficial de [Bitvise](https://bitvise.com/download-area)
+2. Descargue "Bitvise SSH Client" haciendo clic en el botón correspondiente
+3. Ejecute el instalador y siga las instrucciones
+
+<Frame>
+  <img src="/images/vps/bitvise-download.png" alt="Bitvise Download" />
+</Frame>
+
+### Configuración de la conexión
+Configure los siguientes campos:
+- **Host/Server:** Ingrese la dirección IP de su VPS
+- **Port:** 22 (puerto SSH por defecto)
+- **Username:** root (o el usuario proporcionado)
+- **Initial method:** password
+
+<Frame>
+  <img src="/images/vps/bitvise-login.png" alt="Bitvise Login" />
+</Frame>
+
+<Info>
+Para conexiones frecuentes, puede guardar este perfil usando "Save profile" para acceso rápido en el futuro.
+</Info>
+
+### 🔒 Consideraciones de seguridad
+1. **Cambio de Contraseña**
+   - Se recomienda cambiar la contraseña inicial después del primer acceso.
+   - Use contraseñas fuertes que incluyan mayúsculas, minúsculas, números y símbolos.
+2. **Autenticación por Clave SSH**
+   - Para mayor seguridad, considere configurar la autenticación por clave SSH.
+   - Bitvise incluye un generador de claves en "Client key manager".
+3. **Mejores Prácticas**
+   - No comparta sus credenciales.
+   - Mantenga actualizado el cliente SSH.
+   - Configure el firewall para permitir solo IPs confiables.
+
+### 📂 Uso de SFTP
+Bitvise también proporciona acceso SFTP para transferencia de archivos:
+
+1. Una vez conectado, haga clic en "New SFTP window"
+2. La interfaz SFTP le permitirá:
+   - Transferir archivos entre su equipo local y el servidor.
+   - Gestionar permisos de archivos.
+   - Navegar por el sistema de archivos remoto.
+
+### ⚠️ Solución de problemas
+Si experimenta problemas de conexión:
+
+**Verifique que:**
+ - La dirección IP sea correcta.
+ - El puerto 22 esté abierto en el firewall.
+ - Las credenciales sean correctas.
+ - El servicio SSH esté activo en el servidor.
+
+**Mensajes comunes de error:**
+ - "Connection refused": El servidor no acepta conexiones en el puerto 22.
+ - "Authentication failed": Credenciales incorrectas.
+ - "Host key verification failed": La clave del servidor ha cambiado.

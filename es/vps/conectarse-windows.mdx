@@ -1,0 +1,65 @@
+---
+title: "Guía de como conectarse a un VPS"
+sidebarTitle: "Conectarse (Windows)"
+description: "Aprende a cómo conectarte a tu VPS de RDSNode"
+---
+
+# Descripción general
+Esta guía detalla el proceso para establecer una conexión remota a su VPS (Servidor Privado Virtual) utilizando el cliente de Escritorio Remoto de Windows (RDP - Remote Desktop Protocol).
+
+## Conexión a escritorio remoto en Windows
+
+### 🔑 Credenciales de acceso
+Al adquirir su VPS, recibirá un correo electrónico con las credenciales de acceso en aproximadamente 5 minutos. Las credenciales incluirán:
+```
+Dirección IP: xxx.xxx.xxx.xxx
+Usuario: Administrator
+Contraseña: [contraseña_generada]
+```
+
+<Warning>
+Las credenciales mostradas son ejemplos. Sus credenciales reales serán diferentes y únicas. Revise cuidadosamente el correo electrónico con sus credenciales personalizadas.
+</Warning>
+
+## 🛠️ Proceso de conexión
+
+### 1. Acceder al cliente de escritorio remoto
+- Presione `Windows + R` para la ejecución de programas.
+- Escriba `mstsc` y presione **Enter**.
+- Se abrirá el cliente de conexión a escritorio remoto.
+
+<img src="/images/vps/windows-remote.png" alt="Windows Remote" />
+
+### 2. Configuración de la conexión
+- En el campo **"Equipo"**, ingrese la dirección IP de su VPS
+- Opcionalmente, puede hacer clic en **"Mostrar Opciones"** para configurar ajustes adicionales:
+   - Tamaño de pantalla.
+   - Recursos locales (impresoras, portapapeles, etc)
+   - Rendimiento.
+
+### 3. Autenticación
+<img src="/images/vps/windows-credentials.png" alt="Windows Credentials" />
+Ingrese sus credenciales:
+- **Usuario:** Administrator (por defecto)
+- **Contraseña:** La proporcionada en el correo
+
+<Info>
+Se recomienda cambiar la contraseña predeterminada después de su primer inicio de sesión exitoso.
+</Info>
+
+### ⚠️ Solución de problemas
+Si experimenta problemas de conexión, verifique:
+ - Que la dirección IP sea correcta.
+ - Que el puerto 3389 (RDP) esté abierto en el FireWall.
+ - Que las credenciales sean correctas.
+ - Que el servicio RDP esté habilitado en el servidor.
+
+### 🔒 Consideraciones de seguridad
+ - Mantenga sus credenciales en un lugar seguro.
+ - Cambie la contraseña periódicamente.
+ - Configure el FireWall para permitir conexiones solo desde IPs confiables.
+ - Active la autenticación de dos factores si está disponible.
+
+<Warning>
+Nunca comparta sus credenciales de acceso. Cada usuario debe tener su propia cuenta con los permisos apropiados.
+</Warning>

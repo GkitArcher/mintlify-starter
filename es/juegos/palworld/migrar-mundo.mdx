@@ -1,0 +1,78 @@
+---
+title: "Cómo migrar tu mundo de Palworld desde tu PC al servidor"
+sidebarTitle: "Migrar mundo"
+description: "Guía paso a paso para migrar un mundo local de Palworld a un servidor dedicado."
+---
+
+# Cómo migrar tu mundo de Palworld desde tu PC al servidor
+
+Esta guía explica cómo **migrar un mundo de Palworld** que tienes en tu PC hacia un **servidor dedicado**, manteniendo el progreso del mapa, bases y estructuras.
+
+---
+
+## Ubicación del mundo en tu PC
+
+En tu computadora, el mundo de Palworld se encuentra en:
+
+### Windows
+```
+C:\Users\TU_USUARIO\AppData\Local\Pal\Saved\SaveGames\
+```
+
+Dentro verás una carpeta con un nombre largo (ID de Steam).
+
+Ejemplo:
+```
+76561198000000000
+```
+
+## Identificar el mundo correcto
+
+Dentro de la carpeta de Steam ID encontrarás diferentes mundos, lo ideal es que selección el más reciente.
+Luego ingresa a la carpeta de tu mundo más reciente y encontraras los siguientes archivos:
+
+<Frame>
+  <img src="/images/games/palworld/palworld-worlds-client.gif"/>
+</Frame>
+
+<Frame>
+  <img src="/images/games/palworld/palworld-worlds.png"/>
+</Frame>
+
+Estos archivos **corresponden a tu mundo**.
+
+## Ubicación del mundo en el servidor
+
+En el servidor, la ruta es:
+```
+/home/container/Pal/Saved/SaveGames/
+```
+
+Dentro habrá una carpeta similar al Steam ID del servidor.
+En el caso de RDSNode es **0**.
+
+## Migrar el mundo al servidor
+
+1. Apagar el servidor.
+2. Entra a **Files** del panel.
+3. Ve a:
+```
+/home/container/Pal/Saved/SaveGames/0/MUNDO CREADO
+```
+4. Sube los archivos completos del mundo desde tu PC.
+5. Reemplaza la existente si es necesario.
+6. Inicia el servidor.
+
+<Frame>
+  <img src="/images/games/palworld/palworld-worlds-server.gif"/>
+</Frame>
+
+## Migrar personajes (opcional)
+
+Si deseas mantener los personajes:
+
+Copia también la carpeta:
+```
+Players/
+```
+Si no la copias, los jugadores aparecerán como nuevos.

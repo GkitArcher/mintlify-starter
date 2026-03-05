@@ -1,0 +1,27 @@
+---
+title: "Cómo actualizar tu servidor de Palworld"
+sidebarTitle: "Actualizar servidor de Palworld"
+description: "Guía para actualizar tu servidor dedicado de Palworld."
+tags: "palworld"
+---
+
+Cada vez que Pocketpair, los creadores del juego Palworld, lanzan parches, correcciones de errores o nuevas funciones, también será necesario actualizar los servidores.  
+Si el servidor o el juego no están actualizados, podrías encontrarte con el error:
+
+`the match you are trying to join is running an incompatible version of the game.`
+
+## Actualizar servidor de Palworld en Linux
+
+<Tip>Antes de actualizar, ¡haz una copia de seguridad! Te ahorrará dolores de cabeza si algo sale mal.</Tip>
+
+1. Inicia o accede a SteamCMD
+2. `login anonymous`
+3. `app_update 2394010 validate`
+4. `exit`
+
+Alternativamente, puedes ejecutar este comando en una terminal dentro del directorio de SteamCMD: `./steamcmd.sh +force_install_dir /home/Steam/steamapps/common/PalServer +login anonymous +app_update 2394010 validate +quit`
+
+## Actualizar servidor de Palworld en Windows
+
+1. Abre la consola de comandos dentro de la carpeta de SteamCMD
+2. Ejecuta `steamcmd.exe +force_install_dir /home/Steam/steamapps/common/PalServer +login anonymous +app_update 2394010 validate +quit`

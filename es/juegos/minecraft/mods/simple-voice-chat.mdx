@@ -1,0 +1,39 @@
+---
+title: "Plugin Simple Voice Chat: Implementa chat de proximidad a Minecraft"
+sidebarTitle: "Simple Voice Chat"
+description: "Esta guía te mostrará cómo instalar y configurar el mod Simple Voice Chat en tu servidor de Minecraft, permitiendo la comunicación por voz entre jugadores."
+---
+
+**Simple Voice Chat** es uno de los mods más populares para Minecraft (disponible en Fabric, Forge y Quilt) que añade un sistema de chat de voz por proximidad sin necesidad de servidores externos como Discord.
+
+## Instalación
+1. Descárgalo desde nuestro panel, sección **Mods**
+2. Busca **"Simple Voice Chat"** y selecciona la versión correcta (Forge, Fabric, etc)
+
+<Frame>
+  <img src="/images/games/minecraft/simple-voice-chat-1.png" alt="Simple Voice Chat 1" />
+</Frame>
+
+3. Presiona el botón de **"Install"**
+4. Listo, el mod ya debería estar en tu carpeta de ´mods´
+
+## Configuración de Simple Voice Chat (Servidor)
+
+1. Crea un puerto en nuestro panel en la sección **Network**
+
+<Frame>
+  <img src="/images/games/minecraft/simple_voice_chat_port.gif" alt="Puerto del servidor" />
+</Frame>
+
+2. Accede a **Files > config > voicechat-server.properties**
+3. Reemplaza el puerto "voice_port" por el que se creo en el panel.
+```
+voice_host=0.0.0.0
+voice_port=PUERTO DEL PANEL
+min_voice_distance=4
+max_voice_distance=48
+```
+
+## Configuración de Simple Voice Chat (Cliente)
+1. Descarge el mismo mod, si es que ya esta en la carpeta del servidor se lo puede pasar a sus jugadores.
+2. Instalarlo en la carpeta **mods** del jugador.

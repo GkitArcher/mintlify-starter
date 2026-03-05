@@ -1,0 +1,56 @@
+---
+title: "Cómo Subir Mundos Personalizados a un Servidor de Minecraft"
+sidebarTitle: "Subir un mundo"
+description: "Guía para subir mundos personalizados y partidas de un solo jugador a tu servidor de Minecraft."
+---
+
+# Cómo Subir Mundos Personalizados a tu Servidor de Minecraft
+
+Sube tus mundos de un solo jugador o mapas personalizados para compartirlos con tus amigos en tu servidor.
+
+<Warning>Asegúrate de que la versión del mundo coincida con la versión del servidor para evitar corrupción.</Warning> 
+
+## Encontrar los Archivos del Mundo
+
+### En Windows:
+
+1. Presiona `Windows + R` y escribe `%AppData%`
+2. Ve a `.minecraft/saves`
+3. Busca la carpeta de tu mundo y comprímela usando [WinRAR](https://winrar.com) o [7Zip](https://7zip.com)
+
+### En Mac:
+
+1. Abre Spotlight y pega: `~/Library/Application Support/minecraft`
+2. Entra en la carpeta `saves`
+3. Haz clic derecho sobre la carpeta del mundo y selecciona **Comprimir**
+
+## Subir el Mundo al Servidor
+
+1. Detén tu servidor.
+2. Ve a la pestaña de **Files** y sube el archivo comprimido del mundo.
+3. Haz clic en los tres puntos junto al archivo y selecciona **Unarchive**
+
+<img src="/images/games/minecraft/subir-mundo.png" alt="Subir Mundo" />
+
+4. Abre `server.properties` y cambia `level-name` para que coincida con el nombre de la carpeta del mundo.
+5. Guarda la configuración realizada e inicia tu servidor.
+
+<img src="/images/games/minecraft/subir-mundo-2.png" alt="Subir Mundo 2" />
+
+## Problemas Comunes
+
+**El mundo no carga**
+- Versión incompatible o estructura de carpetas incorrecta  
+- Solución: verifica que la versión del mundo coincida con la del servidor y que la carpeta contenga `level.dat`
+
+**El servidor crashea**
+- Datos del mundo corruptos o archivos faltantes  
+- Solución: vuelve a subir el archivo del mundo
+
+**Los jugadores aparecen en una ubicación incorrecta**
+- Punto de aparición no configurado  
+- Solución: usa el comando `/setworldspawn`
+
+**Faltan estructuras o características**
+- Subida incompleta o problemas de versión  
+- Solución: asegúrate de que la carpeta del mundo esté completa y que las versiones coincidan

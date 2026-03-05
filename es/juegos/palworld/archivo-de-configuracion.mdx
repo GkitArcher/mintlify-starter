@@ -1,0 +1,100 @@
+---
+title: "Entrar al archivo de configuración en Palworld"
+sidebarTitle: "Archivo de configuración"
+description: "Guía para acceder y entender los archivos de configuración de servidores dedicados de Palworld."
+---
+
+# Entrar al archivo de configuración en Palworld
+
+En **Palworld**, los servidores dedicados utilizan **archivos de configuración** para definir parámetros como dificultad, daño, experiencia, spawn de Pals y ajustes del mundo.
+
+Esta guía explica **dónde encontrar los archivos de configuración** y muestra **ejemplos básicos** de los más importantes.
+
+---
+
+## Ubicación de los archivos de configuración
+
+En servidores dedicados, los archivos de configuración se encuentran en:
+```
+/home/container/Pal/Saved/Config/LinuxServer/
+```
+
+<Frame>
+  <img src="/images/games/palworld/palworldserver.png"/>
+</Frame>
+
+Dentro de esta carpeta se almacenan todos los archivos que controlan el comportamiento del servidor.
+
+---
+
+## Archivos de configuración principales
+
+### PalWorldSettings.ini
+Archivo principal de configuración del servidor.
+
+Ruta:
+```
+/home/container/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
+```
+
+Ejemplo de contenido:
+<Frame>
+  <img src="/images/games/palworld/palworldserver-ini.png"/>
+</Frame>
+
+Algunas de las cosas importantes que puedes modificar son las siguientes:
+
+| Opción | Descripción |
+|------|------------|
+| `Difficulty` | Dificultad general del mundo |
+| `DayTimeSpeedRate` | Velocidad del ciclo de día |
+| `NightTimeSpeedRate` | Velocidad del ciclo de noche |
+| `ExpRate` | Multiplicador de experiencia |
+| `PalCaptureRate` | Probabilidad de captura de Pals |
+| `PalSpawnNumRate` | Cantidad de Pals que aparecen en el mundo |
+| `PalDamageRateAttack` | Daño que infligen los Pals |
+| `PalDamageRateDefense` | Daño que reciben los Pals |
+| `PlayerDamageRateAttack` | Daño que inflige el jugador |
+| `PlayerDamageRateDefense` | Daño que recibe el jugador |
+| `PlayerStomachDecreaceRate` | Consumo de hambre del jugador |
+| `PlayerStaminaDecreaceRate` | Consumo de stamina del jugador |
+| `PlayerAutoHPRegeneRate` | Regeneración automática de vida del jugador |
+| `PalStomachDecreaceRate` | Consumo de hambre de los Pals |
+| `PalStaminaDecreaceRate` | Consumo de stamina de los Pals |
+| `PalAutoHPRegeneRate` | Regeneración automática de vida de los Pals |
+| `BuildObjectHpRate` | Vida de las estructuras |
+| `BuildObjectDamageRate` | Daño recibido por estructuras |
+| `BuildObjectDeteriorationDamageRate` | Deterioro de construcciones |
+| `CollectionDropRate` | Cantidad de recursos obtenidos |
+| `CollectionObjectRespawnSpeedRate` | Velocidad de respawn de recursos |
+| `EnemyDropItemRate` | Drop de ítems de enemigos |
+| `DeathPenalty` | Penalización al morir |
+| `bEnablePlayerToPlayerDamage` | Permite daño entre jugadores |
+| `bEnableFriendlyFire` | Habilita fuego amigo |
+| `bEnableInvaderEnemy` | Habilita invasiones enemigas |
+| `DropItemMaxNum` | Máximo de ítems tirados en el mundo |
+| `BaseCampMaxNum` | Máximo de bases en el servidor |
+| `BaseCampWorkerMaxNum` | Máximo de trabajadores por base |
+| `GuildPlayerMaxNum` | Máximo de jugadores por guild |
+| `BaseCampMaxNumInGuild` | Máximo de bases por guild |
+| `PalEggDefaultHatchingTime` | Tiempo de incubación de huevos |
+| `WorkSpeedRate` | Velocidad de trabajo |
+| `AutoSaveSpan` | Intervalo de guardado automático |
+| `bIsPvP` | Habilita modo PvP |
+| `bHardcore` | Habilita modo hardcore |
+| `bEnableFastTravel` | Permite viaje rápido |
+| `ItemWeightRate` | Peso de los ítems |
+| `ServerPlayerMaxNum` | Máximo de jugadores en el servidor |
+| `ServerName` | Nombre del servidor |
+| `ServerDescription` | Descripción del servidor |
+| `AdminPassword` | Contraseña de administrador |
+| `ServerPassword` | Contraseña del servidor |
+| `bAllowClientMod` | Permite mods del cliente |
+| `PublicPort` | Puerto público del servidor |
+| `PublicIP` | IP pública del servidor |
+| `RCONEnabled` | Habilita RCON |
+| `RCONPort` | Puerto RCON |
+| `bUseAuth` | Usa autenticación oficial |
+| `SupplyDropSpan` | Intervalo de drops de suministros |
+| `EnablePredatorBossPal` | Habilita Pals jefe depredadores |
+| `ServerReplicatePawnCullDistance` | Distancia de replicación del servidor |

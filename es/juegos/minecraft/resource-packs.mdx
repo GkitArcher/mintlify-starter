@@ -1,0 +1,54 @@
+---
+title: "Cómo Añadir Resource Packs a un Servidor de Minecraft"
+sidebarTitle: "Añadir resource packs"
+description: "Guía para alojar y configurar un resource pack en tu servidor de Minecraft."
+---
+
+Los resource packs te permiten personalizar cómo se ve y suena Minecraft. Añade texturas, sonidos y elementos de la interfaz para hacer tu servidor único.
+
+## Límites de Tamaño
+
+- **Minecraft 1.14 y anteriores**: máximo 50MB
+- **Minecraft 1.15+**: máximo 100MB
+
+## Encontrar o Crear tu Resource Pack
+
+Descarga resource packs desde [CurseForge](https://www.curseforge.com/minecraft/texture-packs) o crea el tuyo propio.
+
+Si creas uno desde cero, comprímelo asegurándote de que en la raíz estén:
+- La carpeta `/assets`
+- El archivo `pack.mcmeta`
+- El icono `pack.png`
+
+## Alojar tu Resource Pack
+
+Necesitas alojar tu resource pack en internet para que los jugadores puedan descargarlo. Aquí tienes dos opciones:
+
+### Usando MCPacks
+
+1. Sube tu pack a [MCPacks](https://mc-packs.net)
+2. Copia los valores `resource-pack=` y `resource-pack-sha1=` que te proporciona
+3. MCPacks soporta packs de hasta 95MB
+
+### Usando Dropbox
+
+1. Sube tu pack a Dropbox
+2. Obtén el enlace de uso compartido y cambia `dl=0` por `dl=1` para descarga directa
+3. Opcionalmente, [crea un hash SHA-1](http://www.sha1-online.com/) para verificación
+
+<Info>Prueba el enlace para asegurarte de que descarga el pack directamente.</Info>
+
+## Configurar tu Servidor
+
+1. Abre `server.properties` en el administrador de archivos
+2. Añade la URL del resource pack y el hash SHA-1:
+
+```yml
+# Usando MCPacks
+resource-pack=https://download.mc-packs.net/pack/{ID}.zip
+
+# Usando Dropbox
+resource-pack=https://www.dropbox.com/s/<ID>/MiResourcePackGenial.zip?dl=1
+
+# Hash SHA-1 (opcional pero recomendado)
+resource-pack-sha1=4c82e70abf8cd8bd3ce117fb69ecc3e0c846915b

@@ -1,0 +1,90 @@
+---
+title: "Cómo instalar Build 42 en Project Zomboid"
+sidebarTitle: "Instalar Build 42"
+description: "Guía paso a paso para instalar y usar la Build 42 de Project Zomboid en clientes y servidores alojados en RDSNode."
+---
+
+# Cómo instalar Build 42 en Project Zomboid
+
+La **Build 42** de Project Zomboid es una versión experimental que introduce cambios importantes en el motor del juego, animaciones, sistema de combate, crafting y rendimiento general. Esta versión se distribuye como una **rama beta**, por lo que puede presentar errores e incompatibilidades.
+
+<Warning>
+La Build 42 es inestable. No se recomienda usarla en servidores principales sin respaldos.
+</Warning>
+
+## Requisitos previos
+
+Antes de instalar la Build 42, asegúrate de cumplir con lo siguiente:
+
+- Respaldar tus mundos y personajes existentes  
+- Entender que **muchos mods pueden no ser compatibles**  
+
+## Instalar Build 42 en el cliente (Steam)
+
+Para jugar en Build 42 o conectarte a servidores compatibles:
+
+1. Abre **Steam** y ve a tu **Biblioteca**.
+2. Haz clic derecho en **Project Zomboid** → **Propiedades**.
+3. Entra a la pestaña **Betas**.
+4. En el menú desplegable, selecciona la rama correspondiente a **Build 42**  
+   (ejemplo: `unstable`, `b42` o similar).
+5. Cierra la ventana y espera a que Steam descargue la actualización.
+
+<img src="/images/games/project-zomboid/build42-client.gif"/>
+
+Una vez finalizada la descarga, el juego se iniciará usando la Build 42.
+
+## Instalar Build 42 en un servidor dedicado (RDSNode)
+
+Si tu servidor está alojado en **RDSNode**, sigue estos pasos:
+
+1. Inicia sesión en el **panel de control de RDSNode**.
+2. Detén completamente el servidor de Project Zomboid.
+3. Borra todos los archivos de la sección **Files**
+4. Ve a la sección **Startup**
+5. Modifica la opción **Steam Beta Branch [requires reinstall]** colocando `unstable`
+
+<img src="/images/games/project-zomboid/build42.png" alt="Build 42 de Project Zomboid" />
+
+6. Ve a la sección **Settings** y debes re-instalar el servidor.
+
+<img src="/images/games/project-zomboid/reinstall.png" alt="Reinstalación de Project Zomboid" />
+
+<Info>
+En algunos casos, RDSNode puede requerir una **reinstalación del servidor** para aplicar correctamente la Build 42.
+</Info>
+
+6. Guarda los cambios e inicia nuevamente el servidor.
+
+## Compatibilidad multijugador
+
+Ten en cuenta los siguientes puntos importantes:
+
+- Todos los jugadores deben usar **Build 42**.
+- Clientes en **Build 41 no podrán conectarse**.
+- Mundos creados en Build 41 pueden causar errores.
+- Se recomienda **crear un mundo nuevo** al usar Build 42.
+
+## Mods y Steam Workshop
+
+- Muchos mods aún **no están adaptados a Build 42**.
+- El servidor descargará automáticamente los mods compatibles.
+- Si el servidor no inicia:
+  - Desactiva todos los mods
+  - Inícialo en limpio
+  - Activa los mods uno por uno
+
+## Volver a la versión estable (Build 41)
+
+Si deseas regresar a la versión estable:
+
+### Cliente
+1. Steam → **Propiedades** → **Betas**
+2. Selecciona **None** o la rama estable
+3. Espera la descarga
+
+### Servidor (RDSNode)
+1. Detén el servidor
+2. Ve a la sección **Starup**
+3. Modifica la opción **Steam Beta Branch [requires reinstall]** borrando `unstable` y dejandolo vacio.
+4. Inicia el servidor nuevamente

@@ -1,0 +1,39 @@
+---
+title: "Cómo agregar administradores a tu servidor FiveM"
+sidebarTitle: "Agregar administradores"
+description: "Aprende cómo agregar administradores a tu servidor FiveM usando permisos y comandos."
+---
+
+## Obtener el Steam ID del jugador
+
+1. El jugador debe unirse a tu servidor FiveM.
+2. Abre la consola del servidor.
+3. Escribe: `status`
+4. Copia su Steam ID (ejemplo: `steam:110000103fd1bb1`)
+
+## Agregar permisos de administrador
+
+### Método 1: Comando en consola
+1. Abre la consola del servidor.
+2. Escribe: `add_ace identifier.steam:[steamid] command allow`
+3. Reemplaza `[steamid]` con el Steam ID del jugador
+
+**Ejemplo:** `add_ace identifier.steam:110000103fd1bb1 command allow`
+
+### Método 2: Archivo server.cfg
+1. Inicia sesión en el panel de control de tu hosting de FiveM.
+2. Abre **File Manager > server.cfg**
+3. Agrega la línea: `add_ace identifier.steam:[steamid] command allow`
+4. Guarda los cambios y reinicia el servidor.
+
+## Comandos básicos de administrador
+
+- `kick [id] [razón]` — Expulsar a un jugador.
+- `ban [id] [razón]` — Banear a un jugador.
+- `tp [id1] [id2]` — Teletransportar a un jugador.
+- `restart [segundos]` — Reiniciar el servidor.
+
+## Quitar acceso de administrador
+
+Usa: `remove_ace identifier.steam:[steamid] command allow`
+O elimina la línea correspondiente del archivo `server.cfg` y reinicia el servidor.

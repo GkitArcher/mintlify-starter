@@ -1,0 +1,40 @@
+---
+title: "Plugin Geyser: Conecta a los jugadores de Java con Bedrock"
+sidebarTitle: "Geyser"
+description: "Guía de cómo configurar un servidor de Minecraft que permita la conexión tanto de jugadores de Java Edition como de Bedrock Edition, utilizando GeyserMC."
+---
+
+[Geyser](https://geysermc.org/) es un programa que permite a los clientes de Minecraft: Bedrock Edition unirse a los servidores de Minecraft: Java Edition, lo que permite un verdadero juego cruzado entre ambas ediciones del juego.
+El objetivo final de este proyecto es permitir a los usuarios de Minecraft: Bedrock Edition unirse a los servidores de Minecraft: Java Edition de la forma más fluida posible.
+
+## Instalación
+
+**Servidores basados en Bukkit:**
+1. Descárgalo desde [GeyserMC Oficial](https://geysermc.org/download)
+2. Descarga la versión Spigot/Paper
+3. Coloca el archivo JAR en la carpeta `plugins`
+4. Reinicia tu servidor
+
+## Configuración de GeyserMC
+
+1. Accede a **plugins/Geyser-Spigot/config.yml**
+2. Crea un puerto en nuestro panel en la sección **Network**
+
+<Frame>
+  <img src="/images/games/minecraft/geyser_port.gif" alt="Puerto del servidor" />
+</Frame>
+
+3. Configura los puertos:
+```
+bedrock:
+  address: 0.0.0.0
+  port: PUERTO DEL PANEL
+```
+4. Ajusta la configuración de autenticación:
+```
+auth-type: online
+```
+
+<Warning>
+    Recuerda abrir un puerto diferente para el servidor de bedrock (Igual se puede usar el mismo puerto que el servidor de bedrock, pero se recomienda usar un puerto diferente para evitar conflictos)
+</Warning>

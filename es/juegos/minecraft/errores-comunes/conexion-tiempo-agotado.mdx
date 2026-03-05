@@ -1,0 +1,89 @@
+---
+title: "Solucionar Error 'Connection Timed Out' en Minecraft"
+sidebarTitle: "Connection Timed Out"
+description: "Guía completa para solucionar el error 'Connection Timed Out' en Minecraft. Aprende las causas comunes y soluciones paso a paso para conectarte a tu servidor."
+---
+
+# Solucionar Error "Connection Timed Out" en Minecraft
+
+El error "Connection Timed Out" es uno de los problemas de conexión más comunes en Minecraft. Este error ocurre cuando tu cliente de Minecraft no puede establecer una conexión con el servidor dentro del tiempo límite establecido. Esta guía te ayudará a identificar y resolver este problema.
+
+## ¿Qué Significa "Connection Timed Out"?
+
+Este error indica que tu cliente de Minecraft intentó conectarse al servidor pero no recibió una respuesta dentro del tiempo esperado. Puede ser causado por varios factores, desde problemas de red hasta configuraciones incorrectas del servidor.
+
+## Verificaciones Básicas
+
+Antes de proceder con soluciones más avanzadas, verifica estos elementos básicos:
+
+### 1. Estado del Servidor
+- **Verifica en el panel de control** que tu servidor esté en estado "En línea"
+- **Revisa los logs del servidor** para cualquier error o problema
+- **Reinicia el servidor** si ha estado inactivo por mucho tiempo
+
+### 2. Información de Conexión
+- **Confirma la IP del servidor** - debe ser exactamente como aparece en el panel de control
+- **Verifica el puerto** - generalmente 25565, pero puede ser diferente
+- **Revisa la versión** - tu cliente debe coincidir con la versión del servidor
+
+<Info>
+La IP completa del servidor incluye el puerto, por ejemplo: `[IP Servidor]`. Asegúrate de incluir ambas partes.
+</Info>
+
+## Soluciones Paso a Paso
+
+### Solución 1: Verificar Configuración de Red
+
+#### Reiniciar Conexión de Red
+1. **Desconecta tu router/módem** por 30 segundos
+2. **Reconecta y espera** a que se restablezca completamente la conexión
+3. **Reinicia tu computadora** para limpiar la caché de red
+4. **Intenta conectarte nuevamente** al servidor
+
+#### Verificar Configuración DNS
+1. **Abre el símbolo del sistema** (Windows) o Terminal (Mac/Linux)
+2. **Ejecuta el comando**: `nslookup [IP Servidor]` (reemplaza con la ip del servidor)
+3. **Verifica que se resuelva** correctamente la dirección
+4. **Considera cambiar DNS** a 8.8.8.8 y 8.8.4.4 (Google DNS)
+
+### Solución 2: Configuración de Firewall
+
+#### Windows Firewall
+1. **Abre el Panel de Control** > Sistema y Seguridad > Firewall de Windows Defender
+2. **Haz clic en "Permitir una aplicación"** a través del firewall
+3. **Busca Minecraft** en la lista o haz clic en "Permitir otra aplicación"
+4. **Asegúrate de que esté marcado** para redes privadas y públicas
+5. **Aplica los cambios** y reinicia Minecraft
+
+#### Antivirus/Software de Seguridad
+- **Revisa tu antivirus** para bloqueos de Minecraft
+- **Añade Minecraft a la lista de excepciones** si es necesario
+- **Desactiva temporalmente** el antivirus para probar (no recomendado permanentemente)
+
+### Solución 3: Problemas del Servidor
+
+#### Verificar Recursos del Servidor
+1. **Revisa el uso de RAM** en el panel de control
+2. **Verifica el uso de CPU** - si está al 100%, el servidor puede estar sobrecargado
+3. **Revisa el espacio en disco** disponible
+4. **Considera actualizar tu plan** si los recursos están al límite
+
+#### Revisar Logs del Servidor
+Busca estos errores comunes en los logs:
+- `java.net.BindException: Address already in use`
+- `OutOfMemoryError`
+- `Connection reset by peer`
+- Plugin errors que puedan estar causando lag
+
+### Solución 4: Configuración de Minecraft
+
+#### Restablecer Configuración de Red
+1. **Cierra Minecraft completamente**
+2. **Ve a la carpeta .minecraft** (Windows: `%appdata%\.minecraft`)
+3. **Renombra el archivo options.txt** a `options.txt.backup`
+4. **Reinicia Minecraft** - se crearán nuevas configuraciones por defecto
+
+#### Verificar Versión de Java
+- **Asegúrate de tener Java actualizado** para tu versión de Minecraft
+- **Para Minecraft 1.17+**: Requiere Java 16 o superior
+- **Para versiones anteriores**: Java 8 es generalmente suficiente

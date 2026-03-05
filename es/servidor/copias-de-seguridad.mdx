@@ -1,0 +1,72 @@
+---
+title: "Copias de Seguridad y Restauraciones"
+sidebarTitle: "Copias de Seguridad y Restauraciones"
+description: "Cómo crear, restaurar y administrar copias de seguridad para tu servidor de juegos."
+icon: "floppy-disks"
+---
+
+Las copias de seguridad protegen tu servidor contra pérdida de datos, caídas, corrupción o cambios accidentales en los archivos. 
+
+---
+
+## Crear Copias de Seguridad
+
+Ve a la pestaña **Backups** en tu panel de juego y haz clic en **Create Backup**.
+
+<Frame>
+  <img src="/images/panel/rdsnode_backup.png" alt="Interfaz de la pestaña Backups" />
+</Frame>
+
+Verás un formulario que te permite personalizar la copia de seguridad:
+
+<Frame>
+  <img src="/images/panel/rdsnode_backup_2.png" alt="Formulario de creación de copia de seguridad" />
+</Frame>
+
+### Opciones
+
+- **Nombre de la Copia de Seguridad** — opcional; déjalo en blanco para una marca de tiempo automática  
+- **Archivos y Directorios Ignorados** — omite archivos/carpetas (ej.: `/plugins/Dynmap/*`)  
+- **Bloqueada** — evita la eliminación accidental  
+
+Haz clic en **Start Backup** para comenzar.
+
+---
+
+## Eliminar Copias de Seguridad
+
+Para eliminar una copia de seguridad:
+
+1. Haz clic en los tres puntos junto a la copia  
+2. Selecciona **Delete**  
+3. Confirma la eliminación
+
+<Frame>
+  <img src="/images/panel/rdsnode_backup_3.png" alt="Eliminar" />
+</Frame>
+
+<Frame>
+  <img src="/images/panel/rdsnode_backup_4.png" alt="Eliminar 2" />
+</Frame>
+
+<Danger>Las copias de seguridad eliminadas no pueden recuperarse.</Danger>
+
+---
+
+## Restaurar Copias de Seguridad
+
+Para restaurar una copia de seguridad:
+
+1. Haz clic en los tres puntos junto a la copia  
+2. Elige **Restore**  
+3. Selecciona si deseas eliminar primero los archivos existentes  
+
+<Frame>
+  <img src="/images/panel/rdsnode_backup_5.png" alt="Menú de restauración de copias de seguridad" />
+</Frame>
+
+<Frame>
+  <img src="/images/panel/rdsnode_backup_6.png" alt="Menú de restauración de copias de seguridad" />
+</Frame>
+
+**Consejo:** Siempre crea una copia de seguridad nueva antes de restaurar, por si necesitas volver atrás.

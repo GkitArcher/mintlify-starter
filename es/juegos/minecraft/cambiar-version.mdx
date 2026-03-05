@@ -1,0 +1,62 @@
+---
+title: "Cómo cambiar la versión de tu servidor de Minecraft"
+sidebarTitle: "Cambiar version"
+description: "Guía para cambiar la versión de tu servidor de Minecraft de forma segura."
+---
+
+## Cambiar la versión
+
+1. Detén tu servidor.
+
+<Frame>
+  <img src="/images/games/minecraft/change_version_1.png" alt="Cambiar versión 1" />
+</Frame>
+
+2. Ve a la pestaña **Versions** y selecciona la versión que deseas.
+3. Te mostrara dos opciones para marcar:
+   - **WIPE SERVER FILES:** Esta opción elimina todos los archivos que tienes actualmente en el servidor.
+   - **ACCEPT EULA:** Esta opción se debe marcar para poder iniciar el servidor de Minecraft.
+
+<Frame>
+  <img src="/images/games/minecraft/change_version_2.png" alt="Cambiar versión 2" />
+</Frame>
+
+4. Presiona el boton de **Install** para realizar la instalación de la nueva versión.
+5. Una vez finalizada la instalación ve a la **Terminal** e inicia tu servidor.
+
+<Warning>Cambiar de versión es complicado y puede corromper los mundos. Siempre haz una copia de seguridad primero y revisa si hay bloques incompatibles.</Warning>
+
+---
+
+### Requisitos de Versión de Java
+
+Si obtienes un error de Java, cambia la `Java Version` en la pestaña **Startup**:
+
+- **Java 8**: Minecraft 1.14 - 1.16.5
+- **Java 16**: Minecraft 1.17 - 1.17.1
+- **Java 17**: Minecraft 1.18+ (Recomendado)
+- **Java 18-21**: Versiones más recientes
+
+<Frame>
+  <img src="/images/games/minecraft/change_version_3.png" alt="Cambiar versión 3" />
+</Frame>
+
+---
+
+## Problemas Comunes
+
+**El servidor no inicia**
+- Incompatibilidad con la versión de Java  
+- Solución: Actualiza la versión de Java en la pestaña Startup  
+
+**Corrupción del mundo al bajar de versión**
+- Los datos de mundos más nuevos no son compatibles con versiones antiguas  
+- Solución: Restaura desde una copia de seguridad o usa herramientas de conversión  
+
+**Los plugins dejan de funcionar**
+- La compatibilidad de plugins varía entre versiones  
+- Solución: Actualiza los plugins a versiones compatibles
+
+**Los jugadores no pueden conectarse**
+- Diferencia entre la versión del cliente y del servidor  
+- Solución: Pide a los jugadores que actualicen su cliente de Minecraft  

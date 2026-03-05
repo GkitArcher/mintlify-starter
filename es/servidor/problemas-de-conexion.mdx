@@ -1,0 +1,152 @@
+---
+title: "Problemas de Conexión"
+sidebarTitle: "Problemas de Conexión"
+description: "Soluciona problemas comunes de conexión cuando los jugadores no pueden unirse a tu servidor."
+icon: "wifi-slash"
+---
+
+Si tú u otros jugadores no pueden conectarse a tu servidor, no te preocupes: la mayoría de los problemas son fáciles de solucionar. Esta guía cubre las razones más comunes por las que un servidor se vuelve inaccesible y cómo resolverlas rápidamente.
+
+---
+
+## ¿Tu Servidor Está en Funcionamiento?
+
+<Info>Tu servidor debe estar **en línea** antes de que alguien pueda unirse.</Info>
+
+Revisa la parte superior de tu panel:
+
+- **Running** → OK  
+- **Starting** → espera 1–3 minutos  
+- **Stopping** → espera a que se apague  
+- **Offline** → haz clic en **Start**  
+
+Si tu servidor se queda atascado en **Starting**, revisa los logs más recientes.
+
+---
+
+## Verifica la IP y el Puerto de tu Servidor
+
+Asegúrate de estar usando los datos correctos:
+
+- **Dirección IP**  
+- **Puerto**  
+- **Dirección de conexión** mostrada en tu panel  
+
+<Frame>
+  <img src="/images/general/rdsnode_conexion.png" alt="Ubicación de la IP y el puerto del servidor" />
+</Frame>
+
+<Warning>Copia y pega exactamente como se muestra — incluso un solo número incorrecto impedirá la conexión.</Warning>
+
+---
+
+## Reinicia tu Servidor
+
+Reiniciar soluciona:
+
+- Problemas de enlace de puertos  
+- Caídas temporales  
+- Mods/plugins en caché  
+- Procesos atascados  
+
+Haz clic en **Restart** e inténtalo nuevamente.
+
+---
+
+## Versión del Juego Incorrecta
+
+La razón más común por la que los jugadores no pueden unirse.
+
+Verifica que:
+
+- Tu servidor esté en la **misma versión** que tu cliente de juego  
+- Los mods/plugins coincidan con la versión  
+- No hayas actualizado el juego por error sin actualizar el servidor  
+
+<Info>Si tu juego se actualizó automáticamente, actualiza también tu servidor.</Info>
+
+---
+
+## Mods / Plugins que Provocan Caídas
+
+Si agregaste recientemente mods, plugins o paquetes de recursos:
+
+- Detén tu servidor  
+- Elimina las adiciones más recientes  
+- Inícialo nuevamente  
+- Revisa los logs en busca de errores  
+
+Un mod/plugin defectuoso puede romper el proceso de inicio y bloquear las conexiones.
+
+---
+
+## Restricciones de Red / Firewall
+
+Algunas redes bloquean el tráfico de juegos:
+
+- WiFi escolar  
+- Redes de trabajo  
+- Puntos de acceso públicos  
+- Controles parentales  
+- Conflictos con VPN  
+
+Prueba:
+
+- Usar un hotspot móvil  
+- Desactivar la VPN  
+- Cambiar de red  
+
+Si tus jugadores pueden conectarse pero **tú** no → esta es la causa.
+
+---
+
+## El Servidor Aún se Está Iniciando
+
+Modpacks pesados o mundos grandes pueden tardar **más en arrancar**.
+
+Espera de 2 a 5 minutos si ves:
+
+- "Preparing spawn"  
+- "Loading world"  
+- "Starting server"  
+- "Loading mods"  
+
+Evita presionar **Start** repetidamente — puede interrumpir la carga.
+
+---
+
+## Límites de Recursos Alcanzados
+
+Si tu RAM o CPU están al máximo, tu servidor puede volverse inaccesible.
+
+Revisa la pestaña de **Uso de Recursos**:
+
+- RAM fijada en 100% → agrega más o elimina mods  
+- Picos de CPU → reinicia u optimiza  
+- Almacenamiento lleno → elimina logs o mundos antiguos  
+
+---
+
+## Tu Servidor Fue Actualizado / Reiniciado Automáticamente
+
+Si instalaste recientemente:
+
+- Una nueva versión  
+- Nuevos mods/plugins  
+- Un nuevo mundo  
+
+Debes reiniciar tu servidor para aplicar los cambios.
+
+---
+
+## ¿Aún No Puedes Conectarte?
+
+Si nada de lo anterior lo solucionó, incluye esta información al contactar con soporte:
+
+- Tu **ID de servidor**
+- Tu **Correo electronico asociado al servidor**
+- La **IP + Puerto** que estás usando
+- Una captura de tus **logs**
+- Qué cambió antes de que comenzara el problema  
+
+¿Sigue sin funcionar? [Obtén ayuda](https://discord.gg/cMRsJZvp8X)

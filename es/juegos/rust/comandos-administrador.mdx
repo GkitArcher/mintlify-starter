@@ -1,0 +1,157 @@
+---
+title: "Guía Completa de Comandos de Administrador de Rust - Gestión del Servidor y Control de Jugadores"
+sidebarTitle: "Comandos de administrador"
+description: "Guía completa de comandos de administrador de servidores Rust para la gestión de jugadores, control del servidor y moderación. Incluye comandos vanilla y comandos de plugins uMod con ejemplos."
+---
+
+# Guía Completa de Comandos de Administrador de Rust
+
+Domina la administración de tu servidor Rust con esta completa referencia de comandos. Ya sea que estés gestionando jugadores, controlando la configuración del servidor o solucionando problemas, estos comandos de administrador te brindan control total sobre tu servidor multijugador de supervivencia.
+
+Esta guía cubre tanto los comandos vanilla de Rust como los comandos mejorados de plugins uMod para servidores Rust.
+
+## Obtener Acceso de Administrador
+
+### Método 1: Consola del Servidor (Recomendado)
+
+1. **Accede a la consola del servidor** (varía según el host)
+2. **Agrégate como administrador:**
+   ```
+   ownerid STEAMID64 "YourName" "reason"
+   ```
+3. **Guarda la configuración:**
+   ```
+   server.writecfg
+   ```
+
+### Método 2: Archivo de Configuración
+
+1. **Edita `server/cfg/users.cfg`**
+2. **Agrega la línea:**
+   ```
+   ownerid STEAMID64 "YourName" "Admin"
+   ```
+3. **Reinicia el servidor** para aplicar los cambios
+
+### Método 3: En el Juego (Si Ya Eres Admin)
+
+```
+/addowner STEAMID64
+/addmoderator STEAMID64
+```
+
+## Comandos esenciales de administrador
+
+### Manejo de jugadores
+
+#### Expulsar jugadores
+```bash
+kick "PlayerName" "Reason"
+kick STEAMID64 "Reason"
+```
+**Ejemplos:**
+- `kick "BadPlayer" "Griefing"`
+- `kick 76561198000000000 "Cheating"`
+
+#### Prohibir jugadores
+```bash
+ban "PlayerName" "Reason"
+ban STEAMID64 "Reason"
+banid STEAMID64 "Reason"
+```
+**Permanent bans:**
+- `ban "Cheater123" "Aimbot detected"`
+- `banid 76561198000000000 "Toxic behavior"`
+
+#### Perdonar jugadores
+```bash
+unban STEAMID64
+removeid STEAMID64
+```
+
+#### Silenciar jugadores
+```bash
+mute "PlayerName"
+unmute "PlayerName"
+```
+
+### Comandos de teletransportación
+
+#### Teletransportarse a un jugador
+```bash
+teleport "YourName" "TargetPlayer"
+teleportpos "PlayerName" x y z
+```
+
+#### Teletransportar un jugador hacia ti
+```bash
+teleport "PlayerName" "YourName"
+```
+
+#### Teletransportarse a coordenadas
+```bash
+teleportpos "PlayerName" 1000 100 1000
+```
+
+### Manejo de objetos e inventario
+
+#### Dar objetos
+```bash
+give "PlayerName" "ItemName" Amount
+giveid "PlayerName" ItemID Amount
+```
+**Objetos populares:**
+- `give "Player" "rifle.ak" 1`
+- `give "Player" "ammo.rifle" 100`
+- `give "Player" "wood" 1000`
+
+#### Limpiar inventario
+```bash
+inventory.clear "PlayerName"
+```
+
+#### Dar todos los objetos
+```bash
+giveall "ItemName" Amount
+```
+
+## Comandos de control del servidor
+
+### Información del servidor
+```bash
+status                    # Muestra el estado del servidor.
+players                   # Muestra la lista de jugadores conectados.
+serverinfo               # Muestra los detalles del servidor.
+fps                      # Muestra los fps del servidor.
+```
+
+### Manejo del servidor
+```bash
+save                     # Guarda los datos del mapa.
+quit                     # Apagar servidor.
+restart                  # Reiniciar el servidor.
+```
+
+### Clima y tiempo
+```bash
+weather.cloud 0-1        # Cloud coverage (0=clear, 1=overcast)
+weather.fog 0-1          # Fog density
+weather.rain 0-1         # Rain intensity
+weather.wind 0-1         # Wind strength
+
+env.time 12              # Set time (0-24 hours)
+env.day                  # Set to daytime
+env.night                # Set to nighttime
+```
+
+### Manejo de entidades
+```bash
+entity.spawn "EntityName"     # Invocar una entidad.
+entity.spawnat "EntityName" x y z  # Invocar una entidad en coordenadas.
+entity.kill                   # Matar una entidad.
+```
+
+**Entidades comunes:**
+- `entity.spawn "helicopter"`
+- `entity.spawn "bradleyapc"`
+- `entity.spawn "supply_drop"`
