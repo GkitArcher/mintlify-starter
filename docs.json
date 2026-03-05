@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "maple",
-  "name": "RDSNode Wiki",
+  "name": "Documentación RDSNode",
   "colors": {
     "primary": "#0096fe",
     "light": "#0096fe",
