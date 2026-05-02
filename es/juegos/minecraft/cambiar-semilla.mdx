@@ -1,0 +1,42 @@
+---
+title: "Cómo cambiar la semilla del mundo en Minecraft"
+sidebarTitle: "Cambiar la semilla del mundo"
+description: "Guía para saber cambiar la semilla del mundo en Minecraft."
+---
+
+## Introducción
+La **semilla (seed)** es el valor que define cómo se genera el mundo en Minecraft. 
+Cambiarla te permite crear un mundo totalmente nuevo con una distribución diferente de biomas, estructuras, aldeas y más.
+
+Esta guía te enseñará cómo cambiar la semilla de generación de tu mundo de forma correcta y segura desde el panel de RDSNode.
+
+## Importante
+Antes de realizar el cambio:
+- Cambiar la semilla creará un mundo completamente nuevo.
+- Los mundos anteriores serán reemplazados si no los renombras o haces un respaldo.
+- Es recomendable hacer un **backup** antes de continuar.
+
+## Cambiar la semilla
+1. Detén el servidor desde el panel.
+2. Ve a la raíz del servidor y edita el archivo `server.properties`
+3. Busca la línea:
+```
+level-seed=
+```
+4. Escribe el valor de la nueva semilla. Ejemplo:
+```
+level-seed=812993038
+```
+5. Elimina las carpetas de mundo si deseas que se regenere desde **cero**:
+    - **world**
+    - **world_nether**
+    - **world_the_end**
+6. Inicia el servidor.
+
+<img src="/images/games/minecraft/cambiar-semilla.png"/>
+
+## Cómo obtener una semilla
+Puedes generar un mundo en un mundo local, explorar, y luego copiar su semilla con el comando:
+```
+/seed
+```

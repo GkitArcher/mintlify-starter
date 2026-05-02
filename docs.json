@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "maple",
-  "name": "Documentación RDSNode",
+  "name": "RDSNode Wiki",
   "colors": {
     "primary": "#0096fe",
     "light": "#0096fe",
@@ -59,6 +59,8 @@
                   "es/juegos/minecraft/introduccion",
                   "es/juegos/minecraft/unirse-servidor",
                   "es/juegos/minecraft/cambiar-version",
+                  "es/juegos/minecraft/cambiar-semilla",
+                  "es/juegos/minecraft/comandos-basicos",
                   "es/juegos/minecraft/icono-servidor",
                   "es/juegos/minecraft/no-premium",
                   "es/juegos/minecraft/instalar-modpacks",
@@ -69,6 +71,7 @@
                   "es/juegos/minecraft/mods/simple-voice-chat",
                   "es/juegos/minecraft/resource-packs",
                   "es/juegos/minecraft/subir-mundo",
+                  "es/juegos/minecraft/migrar-aternos",
                   "es/juegos/minecraft/errores-comunes/conexion-tiempo-agotado",
                   "es/juegos/minecraft/errores-comunes/exception-server-tick-loop",
                   "es/juegos/minecraft/errores-comunes/failed-to-check-session-lock",
@@ -108,7 +111,7 @@
                   "es/juegos/valheim/unirse-servidor",
                   "es/juegos/valheim/agregar-administrador",
                   "es/juegos/valheim/comandos-administrador",
-                  "es/juegos/valheim/cambiar-nombre",
+                  "es/juegos/valheim/cambiar-nombrer",
                   "es/juegos/valheim/migrar-mundo"
                 ]
               },

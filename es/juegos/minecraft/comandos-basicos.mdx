@@ -1,0 +1,116 @@
+---
+title: "Comandos básicos de Minecraft"
+sidebarTitle: "Comandos básicos"
+description: "En esta guía encontrarás una lista de los comandos más utilizados en Minecraft, tanto para jugadores como para administradores de servidores. Estos comandos te ayudarán a gestionar el mundo, controlar a los jugadores y mejorar tu experiencia en el juego."
+---
+
+## Comandos generales
+
+### `/op` y `/deop`
+Otorga o quita permisos de administrador (operador).
+
+```
+/op <jugador>
+/deop <jugador>
+```
+
+### `/help`
+Muestra una lista de comandos disponibles en el servidor.
+
+```
+/help
+```
+
+### `/gamemode`
+Cambia el modo de juego del jugador.
+
+```
+/gamemode survival
+/gamemode creative
+/gamemode adventure
+/gamemode spectator
+```
+
+### `/tp`
+Teletransporta a un jugador a otro jugador o a coordenadas específicas.
+
+```
+/tp <jugador1> <jugador2>
+/tp <x> <y> <z>
+```
+
+### `/give`
+Entrega objetos a un jugador.
+
+```
+/give <jugador> <objeto> [cantidad]
+/give Steve minecraft:diamond 64
+```
+
+### `/time set`
+Cambia la hora del mundo.
+
+```
+/time set day
+/time set night
+/time set 12000
+```
+
+### `/weather`
+Cambia el clima del mundo.
+
+```
+/weather clear
+/weather rain
+/weather thunder
+```
+
+### `/spawnpoint`
+Establece el punto de reaparición de un jugador.
+
+```
+/spawnpoint <jugador> [x] [y] [z]
+```
+
+### `/kill`
+Elimina a un jugador o entidad.
+
+```
+/kill <jugador>
+/kill @e[type=zombie]
+```
+
+### `/difficulty`
+Cambia la dificultad del juego.
+
+```
+/difficulty peaceful
+/difficulty easy
+/difficulty normal
+/difficulty hard
+```
+
+### `/ban` y `/pardon`
+Banea o desbanea a un jugador del servidor.
+
+```
+/ban <jugador> [razón]
+/pardon <jugador>
+```
+
+### `/whitelist`
+Administra la lista blanca de jugadores permitidos.
+
+```
+/whitelist add <jugador>
+/whitelist remove <jugador>
+/whitelist on
+/whitelist off
+```
+
+### `/say`
+Envía un mensaje global a todos los jugadores.
+
+```
+/say ¡Servidor en mantenimiento en 5 minutos!
+```
