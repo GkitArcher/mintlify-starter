@@ -1,0 +1,194 @@
+---
+title: "Argumentos adicionales en un servidor de Valheim"
+sidebarTitle: "Argumentos adicionales"
+description: "Lista completa de parámetros para el apartado Additional arguments de un servidor de Valheim: presets, modificadores de mundo, claves, guardado automático y respaldos."
+---
+
+# Argumentos adicionales en Valheim
+
+Valheim **no usa un archivo de configuración** para la dificultad ni para el comportamiento del servidor.  
+Todo se define con parámetros de arranque, y en el panel se escriben en el campo **Additional arguments** de la sección **Startup**.
+
+Ejemplo:
+
+```
+-preset hard -modifier combat veryhard
+```
+
+---
+
+## Cómo aplicar los parámetros
+
+1. Detén el servidor desde el panel.
+2. Ve a la sección **Startup**.
+3. Busca el campo **Additional arguments**.
+4. Escribe los parámetros separados por un espacio, todos en la misma línea.
+5. Inicia el servidor nuevamente.
+
+<Warning>
+No agregues aquí `-name`, `-world`, `-password` ni `-port`. Esos valores ya los gestiona el panel desde sus propias variables y duplicarlos puede impedir que el servidor inicie.
+</Warning>
+
+---
+
+## Reglas importantes
+
+- El `-preset` **siempre va primero**. Sobrescribe cualquier modificador escrito antes que él.
+- Los `-modifier` y `-setkey` van después, para que puedan ajustar el preset.
+- Cada modificador necesita su prefijo completo: `-modifier raids none`, no solo `raids none`.
+- Todo se escribe en **minúsculas** y sin comas.
+- Los modificadores se aplican **al mundo que se carga en ese arranque**; si cambias de mundo, debes volver a configurarlos.
+
+<Info>
+Orden correcto: `-preset` → `-modifier` → `-setkey`.
+</Info>
+
+---
+
+## Presets de mundo
+
+Aplican un paquete completo de dificultad de una sola vez.
+
+| Parámetro | Descripción |
+|-------|------------|
+| `-preset normal` | Experiencia estándar del juego |
+| `-preset casual` | Muy accesible, pensado para explorar y construir |
+| `-preset easy` | Combate y penalizaciones más suaves |
+| `-preset hard` | Enemigos más fuertes y castigo mayor al morir |
+| `-preset hardcore` | La dificultad más alta del juego |
+| `-preset immersive` | Estilo realista, con más restricciones |
+| `-preset hammer` | Enfocado en construcción libre |
+
+---
+
+## Modificadores de mundo
+
+Ajustan un aspecto concreto con el formato `-modifier <tipo> <valor>`.
+
+### Combate
+
+| Valor | Descripción |
+|-------|------------|
+| `-modifier combat veryeasy` | Enemigos muy débiles |
+| `-modifier combat easy` | Enemigos más débiles |
+| `-modifier combat hard` | Enemigos más fuertes |
+| `-modifier combat veryhard` | Enemigos mucho más fuertes |
+
+### Penalización por muerte
+
+| Valor | Descripción |
+|-------|------------|
+| `-modifier deathpenalty casual` | Conservas todo al morir |
+| `-modifier deathpenalty veryeasy` | Pérdida mínima |
+| `-modifier deathpenalty easy` | Pérdida reducida |
+| `-modifier deathpenalty hard` | Pérdida mayor de habilidades |
+| `-modifier deathpenalty hardcore` | Pierdes todo el equipamiento |
+
+### Recursos
+
+| Valor | Descripción |
+|-------|------------|
+| `-modifier resources muchless` | Muchos menos recursos |
+| `-modifier resources less` | Menos recursos |
+| `-modifier resources more` | Más recursos |
+| `-modifier resources muchmore` | Muchos más recursos |
+| `-modifier resources most` | Cantidad máxima de recursos |
+
+### Ataques a la base (raids)
+
+| Valor | Descripción |
+|-------|------------|
+| `-modifier raids none` | Sin ataques a la base |
+| `-modifier raids muchless` | Ataques muy poco frecuentes |
+| `-modifier raids less` | Ataques poco frecuentes |
+| `-modifier raids more` | Ataques más frecuentes |
+| `-modifier raids muchmore` | Ataques muy frecuentes |
+
+### Portales
+
+| Valor | Descripción |
+|-------|------------|
+| `-modifier portals casual` | Permite teletransportar todos los objetos |
+| `-modifier portals hard` | Más objetos restringidos |
+| `-modifier portals veryhard` | La mayoría de los objetos no se pueden teletransportar |
+
+---
+
+## Claves de mundo (`-setkey`)
+
+Son interruptores que solo se activan, no tienen valor de apagado.
+
+| Parámetro | Descripción |
+|-------|------------|
+| `-setkey nobuildcost` | Construir no consume materiales |
+| `-setkey playerevents` | Los eventos y raids ocurren donde estén los jugadores |
+| `-setkey passivemobs` | Las criaturas no atacan salvo que las provoques |
+| `-setkey nomap` | Desactiva el mapa y el minimapa |
+
+<Warning>
+Claves como `noportals` o `teleportall` circulan en foros, pero **no existen** en la guía oficial de Iron Gate. Los portales se controlan con `-modifier portals`.
+</Warning>
+
+---
+
+## Habilitar la consola del juego (`-console`)
+
+El parámetro `-console` activa la consola de Valheim que se abre con **F5**, necesaria para usar los [comandos de administrador](/es/juegos/valheim/comandos-administrador) como `kick`, `ban` o `save`.
+
+<Warning>
+Este parámetro se configura en **tu PC**, no en el campo **Additional arguments** del panel. Agregarlo al servidor no habilita la consola de los jugadores.
+</Warning>
+
+1. Abre **Steam** y ve a tu biblioteca.
+2. Haz clic derecho en **Valheim** y entra a **Propiedades**.
+3. En la pestaña **General**, busca el campo **Opciones de lanzamiento**.
+4. Escribe:
+
+```
+-console
+```
+
+5. Cierra la ventana e inicia el juego.
+6. Entra al servidor y presiona **F5** para abrir la consola.
+
+<Info>
+Para ejecutar comandos también necesitas estar en el archivo `adminlist.txt` del servidor. Los comandos se escriben **sin barra**: `kick NombreJugador`, no `/kick NombreJugador`.
+</Info>
+
+---
+
+## Ejemplos listos para usar
+
+Servidor relajado para construir con amigos:
+
+```
+-preset casual -modifier resources most -setkey nobuildcost
+```
+
+Servidor desafiante:
+
+```
+-preset hard -modifier combat veryhard -modifier raids muchmore
+```
+
+Servidor exigente sin ataques a la base:
+
+```
+-modifier combat veryhard -modifier deathpenalty hardcore -modifier raids none
+```
+
+---
+
+## Problemas comunes
+
+- **Los modificadores no se aplican**: casi siempre es por el orden de los parámetros.
+  - **Solución**: coloca `-preset` al inicio; si va después, reinicia todos los modificadores a los valores del preset.
+
+- **El servidor inicia pero ignora la configuración**: falta el prefijo del parámetro.
+  - **Solución**: escribe siempre `-modifier raids none` en lugar de `raids none`.
+
+- **El servidor no arranca tras editar el campo**: parámetro mal escrito o duplicado.
+  - **Solución**: revisa la consola, quita los argumentos que ya gestiona el panel (`-name`, `-world`, `-password`, `-port`) y verifica que los valores estén en minúsculas.
+
+- **Los cambios no se ven en el juego**: el servidor no se reinició o cambiaste de mundo.
+  - **Solución**: reinicia desde el panel y recuerda que los modificadores se aplican al mundo cargado en ese arranque.
