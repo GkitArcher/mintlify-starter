@@ -1,0 +1,124 @@
+---
+title: "Cómo instalar mods en un servidor de Valheim"
+sidebarTitle: "Instalar mods"
+description: "Guía paso a paso para instalar mods en un servidor de Valheim desde el panel: Subir los mods, configurarlos y solucionar los errores más comunes."
+---
+
+# Cómo instalar mods en tu servidor de Valheim
+
+Los mods de Valheim te permiten agregar nuevas construcciones, cambiar la dificultad, mejorar el inventario y mucho más.  
+En Valheim **casi todos los mods necesitan BepInEx**, que es el cargador de mods que el juego utiliza tanto en el servidor como en tu PC.
+
+## Antes de empezar
+
+- Los mods se instalan en la carpeta `BepInEx/plugins`, **no** en la raíz del servidor.
+- La mayoría de los mods deben estar instalados **también en el PC de cada jugador**, con la **misma versión**.
+- Descarga los mods únicamente desde sitios confiables como [Thunderstore](https://thunderstore.io/c/valheim/) o [Nexus Mods](https://www.nexusmods.com/valheim).
+- Detén el servidor antes de subir o eliminar archivos.
+
+<Warning>
+Si el servidor y los jugadores no tienen los mismos mods, al intentar entrar aparecerá el error **"Incompatible version"**.
+</Warning>
+
+---
+
+## Paso 1: Activar BepInEx en el servidor
+
+La activación se realiza al momento de contratar el servicio, si usted eligio la versión "vanilla", puede abrir un ticket para solicitar el cambio y se va a realizar con los archivos correspondientes.
+
+---
+
+## Paso 2: Descargar el mod
+
+1. Entra a [Thunderstore](https://thunderstore.io/c/valheim/) y busca el mod que quieras instalar.
+2. Revisa en la descripción si el mod es **Server-side** (solo servidor) o **Client & Server** (ambos).
+3. Descarga el archivo `.zip` del mod con el botón **Manual Download**.
+4. Descomprime el `.zip` en tu PC y busca el archivo `.dll` del mod.
+
+<Warning>
+Verifica siempre que el mod sea compatible con la versión actual de Valheim. Un mod desactualizado puede impedir que el servidor inicie.
+</Warning>
+
+---
+
+## Paso 3: Subir el mod al servidor
+
+1. Detén el servidor desde el panel.
+2. Ve a la sección **Files**.
+3. Entra a la ruta:
+
+```
+/home/container/BepInEx/plugins
+```
+
+4. Sube el archivo `.dll` del mod (o la carpeta completa si el mod lo indica en sus instrucciones).
+5. Inicia el servidor nuevamente.
+
+<Info>
+Algunos mods incluyen archivos extra (carpetas de assets, `.cfg` o dependencias como **Jötunn**). Súbelos respetando la estructura de carpetas que trae el `.zip`.
+</Info>
+
+---
+
+## Paso 4: Instalar los mods en tu PC
+
+Para los mods que también son del lado del cliente, la forma más sencilla es usar un gestor de mods:
+
+1. Descarga e instala [r2modman](https://thunderstore.io/package/ebkr/r2modman/) o **Thunderstore Mod Manager**.
+2. Selecciona **Valheim** y crea un perfil.
+3. Instala **BepInExPack Valheim** y los mismos mods que subiste al servidor.
+4. Inicia el juego con el botón **Start modded**.
+
+Si prefieres hacerlo manualmente, copia los `.dll` en la carpeta del juego:
+
+```
+C:\Program Files (x86)\Steam\steamapps\common\Valheim\BepInEx\plugins
+```
+
+---
+
+## Paso 5: Verificar que los mods cargaron
+
+1. Ve a la sección **Console** del panel.
+2. Inicia el servidor y revisa los mensajes de arranque.
+3. Deberías ver líneas similares a estas:
+
+```
+[Info   :   BepInEx] Loading [NombreDelMod 1.0.0]
+```
+
+Si el mod aparece en la consola, se cargó correctamente.
+
+---
+
+## Configurar los mods
+
+La primera vez que un mod se carga, genera su archivo de configuración en:
+
+```
+/home/container/BepInEx/config
+```
+
+1. Detén el servidor.
+2. Abre el archivo `.cfg` del mod desde **Files**.
+3. Modifica los valores que necesites y guarda los cambios.
+4. Inicia el servidor.
+
+---
+
+## Problemas comunes
+
+- **El servidor no inicia después de instalar un mod**: mod incompatible o dependencia faltante.
+  - **Solución**: elimina el último `.dll` que subiste e instala las dependencias que indique el mod (por ejemplo **Jötunn** o **HookGenPatcher**).
+
+- **Los jugadores reciben "Incompatible version"**: el cliente y el servidor no tienen los mismos mods.
+  - **Solución**: asegúrate de que todos usen las **mismas versiones** de BepInEx y de cada mod.
+
+- **La carpeta `BepInEx` no aparece**: BepInEx no está activado o el servidor no se reinició.
+  - **Solución**: revisa la variable en **Startup** y reinicia el servidor desde el panel.
+
+- **El mod no hace nada dentro del juego**: es un mod solo del lado del cliente.
+  - **Solución**: instálalo en tu PC con r2modman; no todos los mods funcionan desde el servidor.
+
+- **Los cambios de configuración no se aplican**: se editó el archivo con el servidor encendido.
+  - **Solución**: detén el servidor, edita el `.cfg`, guarda y vuelve a iniciarlo.
