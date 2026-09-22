@@ -1,17 +1,55 @@
 ---
 title: "Migrar un mundo de Valheim desde tu PC al panel"
 sidebarTitle: "Migrar mundo"
-description: "Guía rápida para subir y usar un mundo de Valheim desde tu PC en un servidor con panel."
+description: "Guía paso a paso para subir un mundo local de Valheim a tu servidor del panel, con el formato de carpetas de la versión 1.0 y el formato antiguo .db y .fwl."
 ---
 
-## Pasos para migrar mundo desde PC al panel
+# Migrar un mundo de Valheim desde tu PC al panel
 
-1. Ubicar el mundo en tu PC.
+Puedes llevar tu mundo local a tu servidor para seguir jugándolo con tus amigos sin perder lo construido.
 
-En tu computadora, los mundos de Valheim se guardan en:
-`C:\Users\TU_USUARIO\AppData\LocalLow\IronGate\Valheim\worlds`
+<Info>
+Desde **Valheim 1.0** cada mundo se guarda como una **carpeta**, no como dos archivos. Los mundos creados en versiones anteriores siguen siendo un par de archivos `.db` y `.fwl` y también se pueden migrar.
+</Info>
 
-Dentro encontrarás **dos archivos con el mismo nombre**:
+<Warning>
+Tu personaje **no se migra**: se guarda en tu propia PC, en `characters_local`. Solo se sube el mundo.
+</Warning>
+
+---
+
+## Paso 1: Cerrar el juego
+
+Cierra Valheim por completo antes de copiar nada. Si el juego está abierto, puede estar guardando en ese momento y copiarías un mundo incompleto.
+
+---
+
+## Paso 2: Ubicar el mundo en tu PC
+
+Los mundos locales se guardan en:
+
+```
+C:\Users\TU_USUARIO\AppData\LocalLow\IronGate\Valheim\worlds_local
+```
+
+<Info>
+Para llegar rápido, presiona `Win + R`, pega la ruta y presiona Enter. Ten en cuenta que `LocalLow` no es la misma carpeta que `%APPDATA%`.
+</Info>
+
+Dentro vas a encontrar tu mundo en uno de estos dos formatos:
+
+**Formato actual (Valheim 1.0)**: una carpeta con el nombre de tu mundo.
+
+```
+NOMBRE_DEL_MUNDO/
+  _main.1.fwl2      metadatos (nombre y semilla)
+  _main.1.db2       datos del mundo
+  _main.1.chunks    índice de los fragmentos
+  00_00__0_1.chunk  fragmentos del terreno
+  _main.1.ok        marca de guardado completo
+```
+
+**Formato antiguo (anterior a 1.0)**: dos archivos con el mismo nombre.
 
 ```
 NOMBRE_DEL_MUNDO.db
@@ -19,19 +57,90 @@ NOMBRE_DEL_MUNDO.fwl
 ```
 
 <Warning>
-Ambos archivos son obligatorios.
+Si tu mundo es una carpeta, debes subir **la carpeta completa**. Copiar solo algunos archivos `.chunk` o el `.db2` no funciona: el servidor no podrá cargar el mundo y creará uno nuevo.  
+Si tu mundo es el formato antiguo, **ambos archivos son obligatorios**.
 </Warning>
 
-2. Copia los archivos `.db` y `.fwl` del mundo que quieras migrar.
-3. Guárdalos en una carpeta temporal (por ejemplo, el Escritorio).
-4. Apaga el servidor.
-5. Ve al panel a la sección **Files**.
-6. Ve a la ruta `/home/container/.config/unity3d/IronGate/Valheim/worlds_local`.
-7. Sube **los dos archivos** que guardamos anteriormente.
-8. Ve al panel a la sección **Startup**.
-9. Busca la variable **WORLD NAME** y cambialo por el nombre de tu mundo.
-10. Inicia el servidor nuevamente.
+<Info>
+Si tu mundo no aparece en `worlds_local`, puede estar en **Steam Cloud**. Ábrelo desde la lista de mundos del juego y usa la opción **Move to Local** para bajarlo a tu PC. Los mundos muy viejos también pueden estar en la carpeta `worlds`; ábrelos una vez en el juego y se moverán solos a `worlds_local`.
+</Info>
+
+<Warning>
+Los mundos de **Xbox** y de la versión de **Microsoft Store (Game Pass)** no se pueden migrar: no se guardan como archivos copiables.
+</Warning>
+
+---
+
+## Paso 3: Comprimir el mundo
+
+1. Haz clic derecho en la carpeta de tu mundo (o en los dos archivos del formato antiguo).
+2. Comprímela en un archivo `.zip` con [7Zip](https://7zip.org) o WinRAR.
+
+<Info>
+Comprimir evita subir cientos de archivos `.chunk` uno por uno, que es mucho más lento. Si prefieres subirlos sin comprimir, usa SFTP como se explica en [Importar archivos](/es/servidor/importacion-de-archivos).
+</Info>
+
+---
+
+## Paso 4: Subir el mundo al servidor
+
+1. Apaga el servidor desde el panel.
+2. Ve a la sección **Files**.
+3. Entra a la ruta:
+
+```
+/home/container/.config/unity3d/IronGate/Valheim/worlds_local
+```
+
+4. Sube el archivo `.zip`.
+5. Haz clic derecho sobre él y elige **Unarchive**.
+6. Verifica que la carpeta de tu mundo quede **directamente** dentro de `worlds_local`, sin carpetas extra en el medio.
+
+<Warning>
+Si en el servidor ya existe un mundo con el mismo nombre, elimínalo antes de subir el tuyo. Si quedan una carpeta y un par de archivos con el mismo nombre, el servidor cargará la carpeta e ignorará lo que subiste.
+</Warning>
+
+---
+
+## Paso 5: Indicar el nombre del mundo
+
+1. Ve a la sección **Startup**.
+2. Busca la variable **WORLD NAME**.
+3. Escribe el nombre de tu mundo **exactamente igual**, respetando mayúsculas y minúsculas, sin la extensión.
+4. Inicia el servidor.
+
+<Info>
+El nombre debe coincidir con el de la carpeta (o el de los archivos). Si no coincide, Valheim genera un mundo nuevo vacío en lugar de cargar el tuyo.
+</Info>
+
+---
+
+## Paso 6: Verificar que cargó
+
+Ve a la sección **Console** y revisa el arranque. Deberías ver el nombre de tu mundo al cargarse y, si venías del formato antiguo, Valheim lo convertirá al formato de carpetas creando antes una copia de respaldo.
+
+Entra al servidor y confirma que aparezcan tus construcciones y el mapa explorado.
 
 <Frame>
   <img src="/images/games/valheim/valheim-migrar-mundo.gif"/>
 </Frame>
+
+---
+
+## Problemas comunes
+
+- **El servidor creó un mundo nuevo y vacío**: el nombre en **WORLD NAME** no coincide con el del mundo.
+  - **Solución**: corrige el nombre respetando mayúsculas y minúsculas, y revisa que la carpeta esté dentro de `worlds_local`.
+
+- **El mundo aparece en la lista pero no carga**: la subida quedó incompleta.
+  - **Solución**: vuelve a subir la carpeta completa. En el formato antiguo, verifica que estén el `.db` y el `.fwl` con el mismo nombre.
+
+- **Se cargó una versión vieja del mundo**: quedó un mundo anterior con el mismo nombre en el servidor.
+  - **Solución**: apaga el servidor, borra el mundo antiguo de `worlds_local` y sube el tuyo de nuevo.
+
+- **El servidor no reconoce el mundo tras actualizar tu juego**: un mundo guardado en una versión más nueva no carga en un servidor más viejo.
+  - **Solución**: actualiza el servidor antes de subir el mundo.
+
+<Info>
+Antes de reemplazar un mundo en el servidor, te recomendamos crear una [copia de seguridad](/es/servidor/copias-de-seguridad) desde el panel.
+</Info>
