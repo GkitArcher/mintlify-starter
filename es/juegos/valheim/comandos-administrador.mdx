@@ -1,23 +1,221 @@
 ---
 title: "Comandos de Administrador de Valheim"
 sidebarTitle: "Comandos de administrador"
-description: "Guía de referencia completa de comandos de administrador de Valheim para la gestión del servidor. Aprende sobre administración de jugadores, control del mundo y comandos de depuración con ejemplos de sintaxis y consejos de solución de problemas."
-tags: "valheim, comandos de administrador valheim, gestión de servidores valheim, comandos de consola valheim, servidor dedicado valheim"
+description: "Cómo habilitar los comandos de desarrollador (devcommands, fly, debugmode) en un servidor dedicado de Valheim con Server Devcommands y BepInEx, más una referencia completa de comandos de administrador."
+tags: "valheim, comandos de administrador valheim, devcommands valheim, server devcommands, bepinex valheim, servidor dedicado valheim"
 ---
 
 # Comandos de administrador de Valheim
 
-Esta guía cubre todos los comandos de administrador esenciales para gestionar tu servidor de Valheim, incluyendo administración de jugadores, control del mundo y herramientas de depuración.
+Esta guía explica cómo habilitar los comandos de desarrollador (`devcommands`, `fly`, `debugmode`, etc.) en tu servidor dedicado y, al final, incluye una referencia de los comandos más útiles.
 
-## Habilitar el modo administrador
+En un servidor dedicado, el juego base (vanilla) **limita los comandos de desarrollador** para evitar trampas en partidas multijugador. Aunque estés en la lista de administradores, muchos comandos responden con el error `'fly' is not valid in the current context`. Para usarlos necesitas el mod **Server Devcommands**, que comprueba en el servidor que seas administrador y te permite usar esos comandos.
 
-Antes de usar comandos de administrador, debes habilitar el modo administrador en tu servidor.
+<Info>
+Los comandos de administración básicos (`kick`, `ban`, `unban` y `banned`) funcionan **sin mods**. Solo necesitas completar la [Fase 1](#fase-1-asignar-permisos-de-administrador-en-el-servidor). El mod solo hace falta para los comandos de desarrollador.
+</Info>
 
-1. Abre la consola presionando **F5** dentro del juego
-2. Escribe `imacheater` y presiona Enter para habilitar el modo administrador/depuración
-3. Verás aparecer en pantalla "Cheats: True", confirmando que el modo administrador está activo
+Si tu servidor ya tiene **BepInEx preinstalado**, el proceso consiste en:
 
-**Nota**: Los privilegios de administrador se otorgan automáticamente al host del servidor. Para otros jugadores, deberás agregarlos a la lista de administradores en los archivos del servidor.
+1. [Fase 1: Asignar permisos de administrador en el servidor](#fase-1-asignar-permisos-de-administrador-en-el-servidor)
+2. [Fase 2: Instalar el mod en el servidor](#fase-2-instalar-el-mod-en-el-servidor)
+3. [Fase 3: Instalar BepInEx y el mod en tu PC](#fase-3-instalar-bepinex-y-el-mod-en-tu-pc)
+4. [Fase 4: Usar los comandos dentro del juego](#fase-4-usar-los-comandos-dentro-del-juego)
+
+<Warning>
+Si tu servidor es **vanilla** (sin BepInEx), abre un ticket para solicitar la activación de BepInEx antes de seguir. Puedes ver más detalles en [Instalar mods](/es/juegos/valheim/instalar-mods).
+</Warning>
+
+---
+
+## Fase 1: Asignar permisos de administrador en el servidor
+
+El servidor solo acepta comandos de los jugadores que están en `adminlist.txt`. El mod usa esta misma lista para decidir quién puede usar `devcommands`.
+
+### Obtener tu SteamID64
+
+Tu **SteamID64** es un número de **17 dígitos** que empieza con `7656119`. No es tu nombre de usuario ni el nombre de tu perfil.
+
+- **Desde la web**: pega la URL de tu perfil de Steam en [steamid.pro](https://steamid.pro/es/) y copia el valor **Steam64 ID**.
+- **Desde el juego**: conéctate a cualquier servidor y presiona **F2**. Tu ID aparece en el panel de conexión.
+
+### Agregar tu ID a la lista
+
+1. Ve al panel y abre la sección **Files**.
+2. Entra a la ruta:
+
+```
+/home/container/.config/unity3d/IronGate/Valheim
+```
+
+3. Abre el archivo `adminlist.txt`. Si no existe, créalo con **New File** y ese nombre exacto.
+4. Agrega tu SteamID64 en una línea nueva. Pon **un ID por línea**, sin espacios ni otros caracteres.
+
+```
+76561198000000000
+Steam_76561198000000000
+```
+
+5. Guarda el archivo y reinicia el servidor.
+
+<Info>
+Desde el soporte para crossplay, Valheim identifica a cada jugador con el formato `Plataforma_ID` (por ejemplo, `Steam_76561198000000000`). En servidores **sin crossplay** basta con el número solo. En servidores **con crossplay** hace falta la versión con el prefijo `Steam_`. Poner las dos líneas, como en el ejemplo, funciona en ambos casos.
+</Info>
+
+<Warning>
+Las líneas que empiezan con `//` son comentarios y el servidor las ignora. Agrega solo a personas de confianza: cualquier administrador puede expulsar o banear jugadores y, con el mod, usar todos los comandos de desarrollador.
+</Warning>
+
+Si quieres agregar a otros jugadores, sigue la guía [Agregar administradores](/es/juegos/valheim/agregar-administrador).
+
+---
+
+## Fase 2: Instalar el mod en el servidor
+
+El mod se instala en tu PC y **también en el servidor**. Tu PC es la que ejecuta los comandos. El servidor verifica que estés en `adminlist.txt` y te autoriza. Sin el mod en el servidor, varias funciones no están disponibles: el registro de comandos en la consola, `find`, el comando `server` y las opciones del lado del servidor.
+
+<Info>
+**Descarga del mod**: [Server Devcommands en Thunderstore](https://thunderstore.io/c/valheim/p/JereKuusela/Server_devcommands/)
+</Info>
+
+1. Entra a la página del mod y haz clic en **Manual Download** para descargar el archivo `.zip`.
+2. Descomprime el `.zip` en tu PC. Dentro vas a encontrar el archivo **`ServerDevcommands.dll`**, junto con otros archivos como `manifest.json`, `icon.png` y `README.md`. Solo necesitas el `.dll`.
+3. En el panel, detén el servidor.
+4. Ve a la sección **Files** y entra a la ruta:
+
+```
+/home/container/BepInEx/plugins
+```
+
+<Info>
+Si la carpeta `plugins` no existe dentro de `BepInEx`, créala con el botón **Create Directory**. La carpeta `BepInEx` se crea sola la primera vez que el servidor arranca con BepInEx. Si no aparece, inicia el servidor una vez y vuelve a revisar.
+</Info>
+
+5. Presiona el botón **Upload** y sube **`ServerDevcommands.dll`**.
+6. Inicia el servidor.
+
+### Verificar que el mod cargó
+
+Ve a la sección **Console** y revisa el arranque. Deberías ver líneas similares a estas:
+
+```
+[Info   :   BepInEx] Loading [Server Devcommands 1.115.0]
+[Message:   BepInEx] Chainloader startup complete
+```
+
+- La primera línea confirma que BepInEx encontró el mod. El número de versión depende de la versión que descargaste.
+- La segunda línea indica cuántos mods se cargaron (`loaded`), se omitieron (`skipped`) o fallaron (`failed`). Si solo tienes este mod, verás `1 loaded, 0 skipped, 0 failed`. Si `failed` es mayor que 0, algún mod tiene un error.
+
+---
+
+## Fase 3: Instalar BepInEx y el mod en tu PC
+
+El mod también tiene que estar en tu computadora. Sin él, tu juego vanilla rechaza los comandos de desarrollador y muestra el error `'fly' is not valid in the current context`. Los demás jugadores **no** necesitan instalarlo: solo lo necesitan los administradores que vayan a usar los comandos.
+
+<Warning>
+Los mods solo funcionan en la versión de **Steam para PC**. Las versiones de Xbox y Microsoft Store (Game Pass) no permiten instalar BepInEx.
+</Warning>
+
+<Info>
+**Gestor de mods**: [Thunderstore Mod Manager](https://www.overwolf.com/app/thunderstore-thunderstore_mod_manager) o [r2modman](https://thunderstore.io/package/ebkr/r2modman/). Los dos funcionan igual. r2modman no requiere Overwolf.
+</Info>
+
+1. Descarga e instala **Thunderstore Mod Manager** o **r2modman**.
+2. Ábrelo, busca **Valheim** en la lista de juegos y selecciónalo.
+3. Elige el perfil **Default** o crea uno nuevo. Cada perfil tiene sus propios mods y no modifica tu instalación normal del juego.
+4. En el menú lateral, entra a **Online** (o **Get mods**, según la versión del gestor).
+5. Busca `Server Devcommands` y haz clic en **Download**.
+   - El gestor también instala automáticamente **BepInExPack Valheim**, que es el cargador de mods que necesita tu juego.
+6. Cierra Valheim si estaba abierto.
+7. Haz clic en **Start modded**, arriba a la izquierda, para abrir el juego con los mods activados.
+
+<Warning>
+Si abres Valheim directamente desde Steam con el botón **Jugar**, el juego se inicia **sin mods** y los comandos no van a funcionar. Siempre usa **Start modded** desde el gestor.
+</Warning>
+
+<Info>
+Te recomendamos usar la **misma versión** del mod en tu PC y en el servidor. Si actualizas una de las dos, actualiza también la otra.
+</Info>
+
+---
+
+## Fase 4: Usar los comandos dentro del juego
+
+Entra a tu servidor después de abrir el juego con **Start modded**.
+
+### 1. Abrir la consola
+
+Presiona **F5** para abrir la consola de comandos. Con Server Devcommands instalado, la consola se activa sola y no necesitas el parámetro de lanzamiento `-console`.
+
+<Info>
+Si **F5** no abre la consola, abre Steam, haz clic derecho en **Valheim** y entra a **Propiedades > General**. En **Opciones de lanzamiento** escribe `-console` y reinicia el juego. Si pasa esto, lo más probable es que el juego se haya iniciado sin mods.
+</Info>
+
+Con el mod también puedes escribir comandos en el chat (**Enter**), pero te recomendamos usar la consola: si te equivocas al escribir un comando en el chat, se enviará como mensaje y lo verán los demás jugadores.
+
+### 2. Habilitar los comandos de desarrollador
+
+```
+devcommands
+```
+
+El mod le pregunta al servidor si estás en `adminlist.txt`. Si lo estás, verás:
+
+```
+Authorized to use devcommands.
+Dev commands: True
+```
+
+<Info>
+Por defecto, el mod ejecuta `devcommands` automáticamente al entrar al servidor, así que es posible que el mensaje aparezca sin que escribas nada. Si escribes el comando otra vez, lo **desactivas** (`Dev commands: False`). Vuelve a escribirlo para activarlo.
+</Info>
+
+### 3. Activar el modo vuelo
+
+```
+fly
+```
+
+- **Barra espaciadora**: subir.
+- **Ctrl izquierdo**: bajar.
+- Escribe `fly` otra vez para desactivarlo. Si lo desactivas en el aire, vas a caer; con `god` activo no recibes daño.
+
+### 4. Modo depuración (opcional)
+
+```
+debugmode
+```
+
+Con `debugmode` activo, puedes usar estas teclas:
+
+| Tecla | Efecto |
+|-------|--------|
+| **Z** | Activa o desactiva el vuelo |
+| **B** | Construir y fabricar sin materiales y sin mesa de trabajo cerca (equivale al comando `nocost`) |
+| **K** | Mata a los enemigos cercanos |
+
+<Warning>
+Con `debugmode` activo, estas teclas funcionan siempre que no estés escribiendo. Es fácil presionar **K** o **B** sin querer. Escribe `debugmode` otra vez para desactivarlo cuando termines.
+</Warning>
+
+---
+
+## Problemas comunes
+
+- **`'fly' is not valid in the current context`**: el mod no está cargado en tu PC.
+  - **Solución**: cierra el juego y ábrelo con **Start modded** desde el gestor, no desde Steam.
+
+- **`devcommands` no muestra `Authorized to use devcommands.`**: el servidor no te reconoce como administrador.
+  - **Solución**: revisa que tu SteamID64 esté bien escrito en `adminlist.txt`, agrega también la versión `Steam_TU_ID` y reinicia el servidor.
+
+- **El mod no aparece en la consola del servidor**: el `.dll` no está en la carpeta correcta.
+  - **Solución**: verifica que `ServerDevcommands.dll` esté dentro de `/home/container/BepInEx/plugins` y no dentro de una subcarpeta extra del `.zip`.
+
+- **No aparece ninguna línea de BepInEx al arrancar**: BepInEx no está activo en el servidor.
+  - **Solución**: abre un ticket para que activemos BepInEx en tu servidor.
+
+- **F5 no abre la consola**: el juego se inició sin mods.
+  - **Solución**: usa **Start modded** o agrega `-console` en las opciones de lanzamiento de Steam.
 
 ## Comandos de gestión de jugadores
 
@@ -106,7 +304,8 @@ Antes de usar comandos de administrador, debes habilitar el modo administrador e
 
 | Comando | Sintaxis | Descripción |
 |---------|----------|-------------|
-| `debugmode` | `debugmode` | Habilita el modo de construcción creativa (sin costo de recursos) |
+| `debugmode` | `debugmode` | Habilita las teclas de depuración: **Z** (vuelo), **B** (sin costo de recursos) y **K** (matar enemigos) |
+| `nocost` | `nocost` | Construir y fabricar sin materiales ni mesa de trabajo |
 | `god` | `god` | Activa/desactiva el modo dios (invencibilidad) |
 | `ghost` | `ghost` | Activa/desactiva el modo fantasma (sin colisiones, atraviesa objetos) |
 | `fly` | `fly` | Habilita el modo de vuelo |
